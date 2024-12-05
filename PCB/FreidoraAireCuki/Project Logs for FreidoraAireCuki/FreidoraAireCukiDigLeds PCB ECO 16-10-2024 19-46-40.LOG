@@ -1,0 +1,41 @@
+Removed Pin From Net: NetName=GND Pin=LED1-2
+Removed Pin From Net: NetName=GND Pin=LED2-2
+Removed Pin From Net: NetName=GND Pin=LED3-2
+Removed Pin From Net: NetName=GND Pin=LED4-2
+Removed Pin From Net: NetName=GND Pin=LED5-2
+Removed Pin From Net: NetName=GND Pin=LED6-2
+Removed Pin From Net: NetName=GND Pin=LED7-2
+Removed Pin From Net: NetName=GND Pin=LED8-2
+Removed Pin From Net: NetName=GND Pin=LED9-2
+Removed Pin From Net: NetName=LED4 Pin=R13-2
+Removed Pin From Net: NetName=LED1 Pin=R14-2
+Removed Pin From Net: NetName=LED2 Pin=R15-2
+Removed Pin From Net: NetName=LED3 Pin=R16-2
+Removed Pin From Net: NetName=LED4 Pin=R22-2
+Removed Pin From Net: NetName=LED3 Pin=R23-2
+Removed Pin From Net: NetName=LED2 Pin=R24-2
+Removed Pin From Net: NetName=LED1 Pin=R25-2
+Removed Pin From Net: NetName=LED3 Pin=R26-2
+Added Pin To Net: NetName=LED1 Pin=LED1-2
+Added Pin To Net: NetName=LED2 Pin=LED2-2
+Added Pin To Net: NetName=LED3 Pin=LED3-2
+Added Pin To Net: NetName=LED4 Pin=LED4-2
+Added Pin To Net: NetName=VCC Pin=R13-2
+Added Pin To Net: NetName=VCC Pin=R14-2
+Added Pin To Net: NetName=VCC Pin=R15-2
+Added Pin To Net: NetName=VCC Pin=R16-2
+Added Pin To Net: NetName=VCC Pin=R22-2
+Added Pin To Net: NetName=VCC Pin=R23-2
+Added Pin To Net: NetName=VCC Pin=R24-2
+Added Pin To Net: NetName=VCC Pin=R25-2
+Added Pin To Net: NetName=VCC Pin=R26-2
+Added Pin To Net: NetName=LED5 Pin=LED5-2
+Added Net: Name=LED5
+Added Pin To Net: NetName=LED6 Pin=LED6-2
+Added Net: Name=LED6
+Added Pin To Net: NetName=LED7 Pin=LED7-2
+Added Net: Name=LED7
+Added Pin To Net: NetName=LED8 Pin=LED8-2
+Added Net: Name=LED8
+Added Pin To Net: NetName=LED9 Pin=LED9-2
+Added Net: Name=LED9

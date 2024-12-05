@@ -1,0 +1,90 @@
+Removed Pin From Net: NetName=VCC Pin=CN4-1
+Removed Pin From Net: NetName=GND Pin=CN4-2
+Removed Pin From Net: NetName=VCC Pin=CN4-3
+Removed Pin From Net: NetName=GND Pin=CN4-4
+Removed Pin From Net: NetName=VCC Pin=CN4-5
+Removed Pin From Net: NetName=GND Pin=CN4-6
+Removed Pin From Net: NetName=VCC Pin=CN4-7
+Removed Pin From Net: NetName=GND Pin=CN4-8
+Removed Pin From Net: NetName=VCC Pin=CN4-11
+Removed Pin From Net: NetName=GND Pin=CN4-12
+Removed Pin From Net: NetName=PTD7 Pin=CN5-1
+Removed Pin From Net: NetName=PTD5 Pin=CN5-3
+Removed Pin From Net: NetName=NetR2_1 Pin=CN5-7
+Removed Pin From Net: NetName=NetR4_1 Pin=CN5-9
+Removed Pin From Net: NetName=NetR5_1 Pin=CN5-10
+Removed Pin From Net: NetName=NetR3_1 Pin=U1-31
+Removed Pin From Net: NetName=NetR2_1 Pin=U1-32
+Removed Pin From Net: NetName=NetR4_1 Pin=U1-33
+Removed Pin From Net: NetName=NetR5_1 Pin=U1-34
+Removed Pin From Net: NetName=NetR9_1 Pin=U1-61
+Removed Member From Class: ClassName=FreidoraAireCuki Member=C1
+Removed Member From Class: ClassName=FreidoraAireCuki Member=C2
+Removed Member From Class: ClassName=FreidoraAireCuki Member=C3
+Removed Member From Class: ClassName=FreidoraAireCuki Member=C4
+Removed Member From Class: ClassName=FreidoraAireCuki Member=C5
+Removed Member From Class: ClassName=FreidoraAireCuki Member=C6
+Removed Member From Class: ClassName=FreidoraAireCuki Member=C7
+Removed Member From Class: ClassName=FreidoraAireCuki Member=C8
+Removed Member From Class: ClassName=FreidoraAireCuki Member=CN1
+Removed Member From Class: ClassName=FreidoraAireCuki Member=FB1
+Removed Member From Class: ClassName=FreidoraAireCuki Member=H1
+Removed Member From Class: ClassName=FreidoraAireCuki Member=JP2
+Removed Member From Class: ClassName=FreidoraAireCuki Member=JP4
+Removed Member From Class: ClassName=FreidoraAireCuki Member=R1
+Removed Member From Class: ClassName=FreidoraAireCuki Member=U1
+Removed Member From Class: ClassName=FreidoraAireCuki Member=Y1
+Added Component: Designator=CN4(SIP2X6)
+Added Component: Designator=CN5(SIP2X6)
+Added Component: Designator=LED5(LED3MM)
+Added Component: Designator=LED6(LED3MM)
+Added Component: Designator=LED7(LED3MM)
+Added Component: Designator=LED8(LED3MM)
+Added Component: Designator=LED9(LED3MM)
+Added Component: Designator=R22(0805BOTTOM)
+Added Component: Designator=R23(0805BOTTOM)
+Added Component: Designator=R24(0805BOTTOM)
+Added Component: Designator=R25(0805BOTTOM)
+Added Component: Designator=R26(0805BOTTOM)
+Added Component: Designator=TORR4(TORRETA)
+Added Component: Designator=TORR5(TORRETA)
+Added Component: Designator=TORR6(TORRETA)
+Added Pin To Net: NetName=GND Pin=LED5-2
+Added Pin To Net: NetName=GND Pin=LED6-2
+Added Pin To Net: NetName=GND Pin=LED7-2
+Added Pin To Net: NetName=GND Pin=LED8-2
+Added Pin To Net: NetName=GND Pin=LED9-2
+Added Pin To Net: NetName=LED4 Pin=R22-2
+Added Pin To Net: NetName=LED3 Pin=R23-2
+Added Pin To Net: NetName=LED2 Pin=R24-2
+Added Pin To Net: NetName=LED1 Pin=R25-2
+Added Pin To Net: NetName=LED3 Pin=R26-2
+Added Pin To Net: NetName=NetLED5_1 Pin=LED5-1
+Added Pin To Net: NetName=NetLED5_1 Pin=R22-1
+Added Net: Name=NetLED5_1
+Added Pin To Net: NetName=NetLED6_1 Pin=LED6-1
+Added Pin To Net: NetName=NetLED6_1 Pin=R23-1
+Added Net: Name=NetLED6_1
+Added Pin To Net: NetName=NetLED7_1 Pin=LED7-1
+Added Pin To Net: NetName=NetLED7_1 Pin=R24-1
+Added Net: Name=NetLED7_1
+Added Pin To Net: NetName=NetLED8_1 Pin=LED8-1
+Added Pin To Net: NetName=NetLED8_1 Pin=R25-1
+Added Net: Name=NetLED8_1
+Added Pin To Net: NetName=NetLED9_1 Pin=LED9-1
+Added Pin To Net: NetName=NetLED9_1 Pin=R26-1
+Added Net: Name=NetLED9_1
+Added Class: Name=FreidoraAireCukiMicro
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component LED5 LED
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component LED6 LED
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component LED7 LED
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component LED8 LED
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component LED9 LED
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R22 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R23 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R24 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R25 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R26 RES1
+Change Room Name: Old Name=FreidoraAireCuki New Name=FreidoraAireCukiMicro
+Change Room Scope: Old Scope=InComponentClass('FreidoraAireCuki') New Scope=InComponentClass('FreidoraAireCukiMicro')
+Added Room: Name=FreidoraAireCukiDigLeds

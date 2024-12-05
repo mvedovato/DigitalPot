@@ -1,0 +1,4 @@
+Added Component: Designator=CN2(SIP2X6)
+Added Component: Designator=CN3(SIP2X6)
+Added Member To Class: ClassName=FreidoraAireCukiDigLeds Member=Component CN2 HEADER 6X2
+Added Member To Class: ClassName=FreidoraAireCukiDigLeds Member=Component CN3 HEADER 6X2

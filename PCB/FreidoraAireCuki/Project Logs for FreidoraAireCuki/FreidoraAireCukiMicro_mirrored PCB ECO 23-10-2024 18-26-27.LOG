@@ -1,0 +1,282 @@
+Added Pin To Net: NetName=VCC Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=VCC Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=RESET Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=VCC Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C6-2
+Added Pin To Net: NetName=VCC Pin=C7-1
+Added Pin To Net: NetName=GND Pin=C7-2
+Added Pin To Net: NetName=VCC Pin=C8-1
+Added Pin To Net: NetName=GND Pin=C8-2
+Added Pin To Net: NetName=NetC9_1 Pin=C9-1
+Added Pin To Net: NetName=VCC Pin=C9-2
+Added Pin To Net: NetName=AGND Pin=C10-1
+Added Pin To Net: NetName=NTC_10K Pin=C10-2
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=VCC Pin=C11-2
+Added Pin To Net: NetName=GND Pin=C12-1
+Added Pin To Net: NetName=VCC Pin=C12-2
+Added Pin To Net: NetName=VCC Pin=CN1-1
+Added Pin To Net: NetName=SWDIO Pin=CN1-2
+Added Pin To Net: NetName=GND Pin=CN1-3
+Added Pin To Net: NetName=SWDCLK Pin=CN1-4
+Added Pin To Net: NetName=GND Pin=CN1-5
+Added Pin To Net: NetName=RESET Pin=CN1-10
+Added Pin To Net: NetName=DIGITO1 Pin=CN4-1
+Added Pin To Net: NetName=LED2_DR Pin=CN4-2
+Added Pin To Net: NetName=SEG_A Pin=CN4-3
+Added Pin To Net: NetName=LED1_DR Pin=CN4-4
+Added Pin To Net: NetName=SEG_F Pin=CN4-5
+Added Pin To Net: NetName=LED5_DR Pin=CN4-6
+Added Pin To Net: NetName=SEG_D Pin=CN4-7
+Added Pin To Net: NetName=LED9_DR Pin=CN4-8
+Added Pin To Net: NetName=SEG_E Pin=CN4-9
+Added Pin To Net: NetName=LED6_DR Pin=CN4-10
+Added Pin To Net: NetName=SEG_DP Pin=CN4-11
+Added Pin To Net: NetName=SUBIR Pin=CN4-13
+Added Pin To Net: NetName=BAJAR Pin=CN4-14
+Added Pin To Net: NetName=VCC Pin=CN4-15
+Added Pin To Net: NetName=GND Pin=CN4-16
+Added Pin To Net: NetName=LED8_DR Pin=CN5-1
+Added Pin To Net: NetName=DIGITO2 Pin=CN5-2
+Added Pin To Net: NetName=LED7_DR Pin=CN5-3
+Added Pin To Net: NetName=SEG_B Pin=CN5-4
+Added Pin To Net: NetName=DIGITO3 Pin=CN5-6
+Added Pin To Net: NetName=SEG_C Pin=CN5-8
+Added Pin To Net: NetName=SEG_G Pin=CN5-10
+Added Pin To Net: NetName=LED3_DR Pin=CN5-12
+Added Pin To Net: NetName=ONOFF Pin=CN5-13
+Added Pin To Net: NetName=LED4_DR Pin=CN5-14
+Added Pin To Net: NetName=TIEMPO Pin=CN5-15
+Added Pin To Net: NetName=MODO Pin=CN5-16
+Added Pin To Net: NetName=GND Pin=FB1-1
+Added Pin To Net: NetName=AGND Pin=FB1-2
+Added Pin To Net: NetName=VCC Pin=H1-1
+Added Pin To Net: NetName=NetC9_1 Pin=H1-2
+Added Pin To Net: NetName=NTC_10K Pin=H2-1
+Added Pin To Net: NetName=AGND Pin=H2-2
+Added Pin To Net: NetName=NetJP2_1 Pin=JP2-1
+Added Pin To Net: NetName=NetJP2_2 Pin=JP2-2
+Added Pin To Net: NetName=GND Pin=JP4-1
+Added Pin To Net: NetName=VCC Pin=JP4-2
+Added Pin To Net: NetName=BUZZER Pin=JP4-3
+Added Pin To Net: NetName=FAN Pin=JP4-4
+Added Pin To Net: NetName=HEAT Pin=JP4-5
+Added Pin To Net: NetName=NetQ4_1 Pin=Q4-1
+Added Pin To Net: NetName=GND Pin=Q4-2
+Added Pin To Net: NetName=LED1_DR Pin=Q4-3
+Added Pin To Net: NetName=NetQ5_1 Pin=Q5-1
+Added Pin To Net: NetName=GND Pin=Q5-2
+Added Pin To Net: NetName=LED2_DR Pin=Q5-3
+Added Pin To Net: NetName=NetQ6_1 Pin=Q6-1
+Added Pin To Net: NetName=GND Pin=Q6-2
+Added Pin To Net: NetName=LED3_DR Pin=Q6-3
+Added Pin To Net: NetName=NetQ7_1 Pin=Q7-1
+Added Pin To Net: NetName=GND Pin=Q7-2
+Added Pin To Net: NetName=LED4_DR Pin=Q7-3
+Added Pin To Net: NetName=NetQ8_1 Pin=Q8-1
+Added Pin To Net: NetName=GND Pin=Q8-2
+Added Pin To Net: NetName=LED5_DR Pin=Q8-3
+Added Pin To Net: NetName=NetQ9_1 Pin=Q9-1
+Added Pin To Net: NetName=GND Pin=Q9-2
+Added Pin To Net: NetName=LED6_DR Pin=Q9-3
+Added Pin To Net: NetName=NetQ10_1 Pin=Q10-1
+Added Pin To Net: NetName=GND Pin=Q10-2
+Added Pin To Net: NetName=LED7_DR Pin=Q10-3
+Added Pin To Net: NetName=NetQ11_1 Pin=Q11-1
+Added Pin To Net: NetName=GND Pin=Q11-2
+Added Pin To Net: NetName=LED8_DR Pin=Q11-3
+Added Pin To Net: NetName=NetQ12_1 Pin=Q12-1
+Added Pin To Net: NetName=GND Pin=Q12-2
+Added Pin To Net: NetName=LED9_DR Pin=Q12-3
+Added Pin To Net: NetName=NetQ13_1 Pin=Q13-1
+Added Pin To Net: NetName=VCC Pin=Q13-2
+Added Pin To Net: NetName=SEG_A Pin=Q13-3
+Added Pin To Net: NetName=NetQ14_1 Pin=Q14-1
+Added Pin To Net: NetName=VCC Pin=Q14-2
+Added Pin To Net: NetName=SEG_B Pin=Q14-3
+Added Pin To Net: NetName=NetQ15_1 Pin=Q15-1
+Added Pin To Net: NetName=VCC Pin=Q15-2
+Added Pin To Net: NetName=SEG_C Pin=Q15-3
+Added Pin To Net: NetName=NetQ16_1 Pin=Q16-1
+Added Pin To Net: NetName=VCC Pin=Q16-2
+Added Pin To Net: NetName=SEG_D Pin=Q16-3
+Added Pin To Net: NetName=NetQ17_1 Pin=Q17-1
+Added Pin To Net: NetName=VCC Pin=Q17-2
+Added Pin To Net: NetName=SEG_E Pin=Q17-3
+Added Pin To Net: NetName=NetQ18_1 Pin=Q18-1
+Added Pin To Net: NetName=VCC Pin=Q18-2
+Added Pin To Net: NetName=SEG_F Pin=Q18-3
+Added Pin To Net: NetName=NetQ19_1 Pin=Q19-1
+Added Pin To Net: NetName=VCC Pin=Q19-2
+Added Pin To Net: NetName=SEG_G Pin=Q19-3
+Added Pin To Net: NetName=NetQ20_1 Pin=Q20-1
+Added Pin To Net: NetName=VCC Pin=Q20-2
+Added Pin To Net: NetName=SEG_DP Pin=Q20-3
+Added Pin To Net: NetName=RESET Pin=R1-1
+Added Pin To Net: NetName=VCC Pin=R1-2
+Added Pin To Net: NetName=NetQ4_1 Pin=R27-1
+Added Pin To Net: NetName=LED1 Pin=R27-2
+Added Pin To Net: NetName=NetQ5_1 Pin=R28-1
+Added Pin To Net: NetName=LED2 Pin=R28-2
+Added Pin To Net: NetName=NetQ6_1 Pin=R29-1
+Added Pin To Net: NetName=LED3 Pin=R29-2
+Added Pin To Net: NetName=NetQ7_1 Pin=R30-1
+Added Pin To Net: NetName=LED4 Pin=R30-2
+Added Pin To Net: NetName=NetQ8_1 Pin=R31-1
+Added Pin To Net: NetName=LED5 Pin=R31-2
+Added Pin To Net: NetName=NetQ9_1 Pin=R32-1
+Added Pin To Net: NetName=LED6 Pin=R32-2
+Added Pin To Net: NetName=NetQ10_1 Pin=R33-1
+Added Pin To Net: NetName=LED7 Pin=R33-2
+Added Pin To Net: NetName=NetQ11_1 Pin=R34-1
+Added Pin To Net: NetName=LED8 Pin=R34-2
+Added Pin To Net: NetName=NetQ12_1 Pin=R35-1
+Added Pin To Net: NetName=LED9 Pin=R35-2
+Added Pin To Net: NetName=A Pin=R36-1
+Added Pin To Net: NetName=VCC Pin=R36-2
+Added Pin To Net: NetName=A Pin=R37-1
+Added Pin To Net: NetName=NetQ13_1 Pin=R37-2
+Added Pin To Net: NetName=B Pin=R38-1
+Added Pin To Net: NetName=VCC Pin=R38-2
+Added Pin To Net: NetName=B Pin=R39-1
+Added Pin To Net: NetName=NetQ14_1 Pin=R39-2
+Added Pin To Net: NetName=C Pin=R40-1
+Added Pin To Net: NetName=VCC Pin=R40-2
+Added Pin To Net: NetName=C Pin=R41-1
+Added Pin To Net: NetName=NetQ15_1 Pin=R41-2
+Added Pin To Net: NetName=D Pin=R42-1
+Added Pin To Net: NetName=VCC Pin=R42-2
+Added Pin To Net: NetName=D Pin=R43-1
+Added Pin To Net: NetName=NetQ16_1 Pin=R43-2
+Added Pin To Net: NetName=E Pin=R44-1
+Added Pin To Net: NetName=VCC Pin=R44-2
+Added Pin To Net: NetName=E Pin=R45-1
+Added Pin To Net: NetName=NetQ17_1 Pin=R45-2
+Added Pin To Net: NetName=F Pin=R46-1
+Added Pin To Net: NetName=VCC Pin=R46-2
+Added Pin To Net: NetName=F Pin=R47-1
+Added Pin To Net: NetName=NetQ18_1 Pin=R47-2
+Added Pin To Net: NetName=G Pin=R48-1
+Added Pin To Net: NetName=VCC Pin=R48-2
+Added Pin To Net: NetName=G Pin=R49-1
+Added Pin To Net: NetName=NetQ19_1 Pin=R49-2
+Added Pin To Net: NetName=DP Pin=R50-1
+Added Pin To Net: NetName=VCC Pin=R50-2
+Added Pin To Net: NetName=DP Pin=R51-1
+Added Pin To Net: NetName=NetQ20_1 Pin=R51-2
+Added Pin To Net: NetName=NetC9_1 Pin=R52-1
+Added Pin To Net: NetName=TEMPERATURA Pin=R52-2
+Added Pin To Net: NetName=AGND Pin=R53-1
+Added Pin To Net: NetName=NetC9_1 Pin=R53-2
+Added Pin To Net: NetName=NTC_10K Pin=R54-1
+Added Pin To Net: NetName=VCC Pin=R54-2
+Added Pin To Net: NetName=MODO Pin=U1-4
+Added Pin To Net: NetName=TIEMPO Pin=U1-5
+Added Pin To Net: NetName=ONOFF Pin=U1-6
+Added Pin To Net: NetName=VCC Pin=U1-7
+Added Pin To Net: NetName=VCC Pin=U1-8
+Added Pin To Net: NetName=GND Pin=U1-9
+Added Pin To Net: NetName=GND Pin=U1-10
+Added Pin To Net: NetName=GND Pin=U1-13
+Added Pin To Net: NetName=BAJAR Pin=U1-14
+Added Pin To Net: NetName=SUBIR Pin=U1-15
+Added Pin To Net: NetName=DP Pin=U1-16
+Added Pin To Net: NetName=E Pin=U1-17
+Added Pin To Net: NetName=D Pin=U1-18
+Added Pin To Net: NetName=F Pin=U1-22
+Added Pin To Net: NetName=A Pin=U1-29
+Added Pin To Net: NetName=DIGITO1 Pin=U1-30
+Added Pin To Net: NetName=LED2 Pin=U1-32
+Added Pin To Net: NetName=LED1 Pin=U1-33
+Added Pin To Net: NetName=LED5 Pin=U1-34
+Added Pin To Net: NetName=LED9 Pin=U1-35
+Added Pin To Net: NetName=LED6 Pin=U1-36
+Added Pin To Net: NetName=HEAT Pin=U1-37
+Added Pin To Net: NetName=FAN Pin=U1-38
+Added Pin To Net: NetName=BUZZER Pin=U1-39
+Added Pin To Net: NetName=GND Pin=U1-40
+Added Pin To Net: NetName=VCC Pin=U1-41
+Added Pin To Net: NetName=LED7 Pin=U1-42
+Added Pin To Net: NetName=LED8 Pin=U1-43
+Added Pin To Net: NetName=DIGITO2 Pin=U1-44
+Added Pin To Net: NetName=B Pin=U1-45
+Added Pin To Net: NetName=DIGITO3 Pin=U1-46
+Added Pin To Net: NetName=TEMPERATURA Pin=U1-49
+Added Pin To Net: NetName=NTC_10K Pin=U1-50
+Added Pin To Net: NetName=NetJP2_1 Pin=U1-51
+Added Pin To Net: NetName=NetJP2_2 Pin=U1-52
+Added Pin To Net: NetName=C Pin=U1-53
+Added Pin To Net: NetName=G Pin=U1-57
+Added Pin To Net: NetName=LED3 Pin=U1-60
+Added Pin To Net: NetName=LED4 Pin=U1-61
+Added Pin To Net: NetName=SWDCLK Pin=U1-62
+Added Pin To Net: NetName=RESET Pin=U1-63
+Added Pin To Net: NetName=SWDIO Pin=U1-64
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component C1 100nF
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component C2 100nF
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component C3 1uF
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component C6 100nF
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component C7 100nF
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component C8 100nF
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component C9 100nF
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component C10 100nF
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component C11 10uF
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component C12 10uF
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component CN1 HEADER 2x5
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component CN4 HEADER 8X2
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component CN5 HEADER 8X2
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component FB1 Ferrite bead
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component H1 NTC 100K
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component H2 NTC 10K
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component JP2 UART1
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component JP4 HEADER 6
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q4 BC847
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q5 BC847
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q6 BC847
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q7 BC847
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q8 BC847
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q9 BC847
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q10 BC847
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q11 BC847
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q12 BC847
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q13 BC857
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q14 BC857
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q15 BC857
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q16 BC857
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q17 BC857
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q18 BC857
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q19 BC857
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component Q20 BC857
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R1 10k
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R27 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R28 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R29 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R30 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R31 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R32 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R33 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R34 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R35 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R36 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R37 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R38 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R39 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R40 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R41 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R42 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R43 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R44 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R45 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R46 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R47 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R48 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R49 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R50 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R51 4k7
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R52 680
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R53 10K
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R54 10K
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component U1 MKE02Z64VQH4

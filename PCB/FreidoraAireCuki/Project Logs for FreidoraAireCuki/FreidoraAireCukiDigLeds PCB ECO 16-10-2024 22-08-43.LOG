@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=DIGITO2 Pin=CN3-2
+Added Pin To Net: NetName=SEG_B Pin=CN3-4
+Added Pin To Net: NetName=DIGITO3 Pin=CN3-6
+Added Pin To Net: NetName=SEG_C Pin=CN3-8
+Added Pin To Net: NetName=SEG_DP Pin=CN3-10
+Added Pin To Net: NetName=SEG_G Pin=CN3-12

@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=G Pin=U1-1
+Removed Pin From Net: NetName=B Pin=U1-19
+Removed Pin From Net: NetName=DIGITO2 Pin=U1-21
+Removed Pin From Net: NetName=DIGITO3 Pin=U1-25
+Removed Pin From Net: NetName=LED8 Pin=U1-58
+Added Pin To Net: NetName=LED7 Pin=U1-42
+Added Pin To Net: NetName=LED8 Pin=U1-43
+Added Pin To Net: NetName=DIGITO2 Pin=U1-44
+Added Pin To Net: NetName=DIGITO3 Pin=U1-46
+Added Pin To Net: NetName=LED3 Pin=U1-53
+Added Pin To Net: NetName=LED4 Pin=U1-54
+Added Pin To Net: NetName=B Pin=U1-57
+Added Pin To Net: NetName=G Pin=U1-60

@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=MODO Pin=CN3-15
+Removed Pin From Net: NetName=TIEMPO Pin=CN3-16
+Added Pin To Net: NetName=TIEMPO Pin=CN3-15
+Added Pin To Net: NetName=MODO Pin=CN3-16

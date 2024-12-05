@@ -1,0 +1,83 @@
+Protel Design System Design Rule Check
+PCB File : D:\Mis documentos\Marianito\PCB\Marianito\FreidoraAireCuki\FreidoraAireCukiMicro_mirrored.PcbDoc
+Date     : 23/10/2024
+Time     : 18:27:39
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.254mm) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (Disabled)(IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.254mm) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=5.08mm) (All)
+Rule Violations :0
+
+Processing Rule : Room FreidoraAireCukiMicro (Bounding Region = (266.065mm, 243.84mm, 368.3mm, 324.485mm) (InComponentClass('FreidoraAireCukiMicro'))
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.356mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=7.62mm) (Preferred=1.321mm) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=7.62mm) (Preferred=0.33mm) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=7.62mm) (Preferred=0.66mm) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=7.62mm) (Preferred=3.81mm) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=7.62mm) (Preferred=1.651mm) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=7.62mm) (Preferred=0.305mm) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=7.62mm) (Preferred=7.62mm) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.305mm) (Max=7.62mm) (Preferred=0.483mm) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.305mm) (Max=7.62mm) (Preferred=2.438mm) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.33mm) (Max=7.62mm) (Preferred=0.991mm) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.254mm) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.305mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.508mm) (InPoly),(All)
+Rule Violations :0
+
+Processing Rule : Room FreidoraAireCukiDigLeds (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FreidoraAireCukiDigLeds'))
+Rule Violations :0
+
+
+Violations Detected : 0
+Time Elapsed        : 00:00:00

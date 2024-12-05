@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=SEG_C Pin=CN3-10
+Removed Pin From Net: NetName=SEG_G Pin=CN3-12
+Added Pin To Net: NetName=SEG_C Pin=CN3-8
+Added Pin To Net: NetName=SEG_G Pin=CN3-10

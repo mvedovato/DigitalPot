@@ -1,0 +1,6 @@
+Added Component: Designator=R19(0805BOTTOM)
+Added Pin To Net: NetName=SEG_DP Pin=R19-1
+Added Pin To Net: NetName=NetDG1_3 Pin=DG1-3
+Added Pin To Net: NetName=NetDG1_3 Pin=R19-2
+Added Net: Name=NetDG1_3
+Added Member To Class: ClassName=FreidoraAireCukiDigLeds Member=Component R19 RES1

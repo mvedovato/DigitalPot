@@ -1,0 +1,80 @@
+Protel Design System Design Rule Check
+PCB File : D:\Mis documentos\Marianito\PCB\Marianito\FreidoraAireCuki\FreidoraAireCukiDigLeds.PcbDoc
+Date     : 28/10/2024
+Time     : 18:45:11
+
+Processing Rule : Room FreidoraAireCukiDigLeds (Bounding Region = (10449.999mil, 9574.999mil, 14449.999mil, 12749.999mil) (InComponentClass('FreidoraAireCukiDigLeds'))
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=20mil) (InPoly),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=12mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=13mil) (Max=300mil) (Preferred=39mil) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=12mil) (Max=300mil) (Preferred=96mil) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=12mil) (Max=300mil) (Preferred=19mil) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=300mil) (Preferred=300mil) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=300mil) (Preferred=12mil) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=300mil) (Preferred=65mil) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=300mil) (Preferred=150mil) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=300mil) (Preferred=26mil) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=300mil) (Preferred=13mil) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=300mil) (Preferred=52mil) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=14mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=200mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=10mil) (Disabled)(IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=10mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 0
+Time Elapsed        : 00:00:00

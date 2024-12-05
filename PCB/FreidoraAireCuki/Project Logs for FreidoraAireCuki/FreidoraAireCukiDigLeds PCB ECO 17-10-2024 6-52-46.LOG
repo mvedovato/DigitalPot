@@ -1,0 +1,42 @@
+Removed Pin From Net: NetName=LED8_DR Pin=CN3-2
+Removed Pin From Net: NetName=LED8_DR Pin=CN3-3
+Removed Pin From Net: NetName=DIGITO2 Pin=CN3-4
+Removed Pin From Net: NetName=LED7_DR Pin=CN3-5
+Removed Pin From Net: NetName=SEG_B Pin=CN3-6
+Removed Pin From Net: NetName=DIGITO3 Pin=CN3-8
+Removed Pin From Net: NetName=SEG_C Pin=CN3-10
+Removed Pin From Net: NetName=SEG_G Pin=CN3-12
+Removed Pin From Net: NetName=LED4_DR Pin=CN3-13
+Removed Pin From Net: NetName=LED3_DR Pin=CN3-14
+Removed Pin From Net: NetName=LED4_DR Pin=CN3-15
+Removed Pin From Net: NetName=LED3_DR Pin=CN3-16
+Change Component DesignItemId : Designator=CN2 Old DesignItemId= New DesignItemId=HEADER 8X2
+Change Component DesignItemId : Designator=CN3 Old DesignItemId= New DesignItemId=HEADER 8X2
+Change Component Comment : Designator=CN2 Old Comment=Comment New Comment=HEADER 8X2
+Change Component Comment : Designator=CN3 Old Comment=Comment New Comment=HEADER 8X2
+Change Component Description : Designator=CN2 Old Description= New Description=HEADER DE 2 X8
+Change Component Description : Designator=CN3 Old Description= New Description=HEADER DE 2 X8
+Change Component Library : Designator=CN2 Old Library= New Library=DEKSOR SCH.SchLib
+Change Component Library : Designator=CN3 Old Library= New Library=DEKSOR SCH.SchLib
+Added Pin To Net: NetName=LED2_DR Pin=CN2-1
+Added Pin To Net: NetName=LED1_DR Pin=CN2-2
+Added Pin To Net: NetName=DIGITO1 Pin=CN2-3
+Added Pin To Net: NetName=LED5_DR Pin=CN2-4
+Added Pin To Net: NetName=SEG_A Pin=CN2-5
+Added Pin To Net: NetName=LED9_DR Pin=CN2-6
+Added Pin To Net: NetName=SEG_F Pin=CN2-7
+Added Pin To Net: NetName=LED6_DR Pin=CN2-8
+Added Pin To Net: NetName=SEG_D Pin=CN2-9
+Added Pin To Net: NetName=GND Pin=CN2-10
+Added Pin To Net: NetName=SEG_E Pin=CN2-11
+Added Pin To Net: NetName=VCC Pin=CN2-12
+Added Pin To Net: NetName=DIGITO2 Pin=CN3-2
+Added Pin To Net: NetName=LED7_DR Pin=CN3-3
+Added Pin To Net: NetName=SEG_B Pin=CN3-4
+Added Pin To Net: NetName=DIGITO3 Pin=CN3-6
+Added Pin To Net: NetName=SEG_C Pin=CN3-8
+Added Pin To Net: NetName=SEG_G Pin=CN3-10
+Added Pin To Net: NetName=LED4_DR Pin=CN3-11
+Added Pin To Net: NetName=LED3_DR Pin=CN3-12
+Added Member To Class: ClassName=FreidoraAireCukiDigLeds Member=Component CN2 HEADER 8X2
+Added Member To Class: ClassName=FreidoraAireCukiDigLeds Member=Component CN3 HEADER 8X2

@@ -1,0 +1,362 @@
+Change Component DesignItemId : Designator=DG1 Old DesignItemId= New DesignItemId=DIGITO x 3 400
+Change Component Comment : Designator=DG1 Old Comment=Comment New Comment=5121CG-HG
+Change Component Comment : Designator=SW2 Old Comment=Comment New Comment=+
+Change Component Comment : Designator=SW1 Old Comment=Comment New Comment=-
+Change Component Comment : Designator=TORR1 Old Comment=Comment New Comment=
+Change Component Comment : Designator=TORR2 Old Comment=Comment New Comment=
+Change Component Comment : Designator=TORR3 Old Comment=Comment New Comment=
+Change Component Comment : Designator=LED1 Old Comment=Comment New Comment=LED
+Change Component Comment : Designator=LED2 Old Comment=Comment New Comment=LED
+Change Component Comment : Designator=LED3 Old Comment=Comment New Comment=LED
+Change Component Comment : Designator=LED4 Old Comment=Comment New Comment=LED
+Change Component Comment : Designator=SW5 Old Comment=Comment New Comment=MODO
+Change Component Comment : Designator=SW3 Old Comment=Comment New Comment=ON/OFF
+Change Component Comment : Designator=SW4 Old Comment=Comment New Comment=TIEMPO
+Change Component Description : Designator=DG1 Old Description= New Description=Dígito 0.52' cátodo común verde
+Change Component Library : Designator=DG1 Old Library= New Library=DEKSOR.IntLib
+Added Component: Designator=BR1(B2PVM)
+Added Component: Designator=BR2(B4PVM)
+Added Component: Designator=C1(C-0805_N)
+Added Component: Designator=C2(C-0805_N)
+Added Component: Designator=C3(C-0805_N)
+Added Component: Designator=C4(C-0805_N)
+Added Component: Designator=C5(C-0805_N)
+Added Component: Designator=C6(C-0805_N)
+Added Component: Designator=C7(C-0805_N)
+Added Component: Designator=C8(C-0805_N)
+Added Component: Designator=CN1(SIP2X5)
+Added Component: Designator=FB1(C-0805_N)
+Added Component: Designator=H1(SIP2)
+Added Component: Designator=H2(SIP3)
+Added Component: Designator=JP1(SIP2)
+Added Component: Designator=JP2(SIP2)
+Added Component: Designator=JP3(SIP2)
+Added Component: Designator=JP4(SIP6)
+Added Component: Designator=Q1(SOT23_BOTTOM)
+Added Component: Designator=Q2(SOT23_BOTTOM)
+Added Component: Designator=Q3(SOT23_BOTTOM)
+Added Component: Designator=R1(R-0805_N_WAVE)
+Added Component: Designator=R2(0805BOTTOM)
+Added Component: Designator=R3(0805BOTTOM)
+Added Component: Designator=R4(0805BOTTOM)
+Added Component: Designator=R5(0805BOTTOM)
+Added Component: Designator=R6(R-0805_N_WAVE)
+Added Component: Designator=R7(R-0805_N_WAVE)
+Added Component: Designator=R8(R-0805_N_WAVE)
+Added Component: Designator=R9(0805BOTTOM)
+Added Component: Designator=R10(0805BOTTOM)
+Added Component: Designator=R11(0805BOTTOM)
+Added Component: Designator=R12(0805BOTTOM)
+Added Component: Designator=R13(0805BOTTOM)
+Added Component: Designator=R14(0805BOTTOM)
+Added Component: Designator=R15(0805BOTTOM)
+Added Component: Designator=R16(0805BOTTOM)
+Added Component: Designator=R17(0805BOTTOM)
+Added Component: Designator=R18(0805BOTTOM)
+Added Component: Designator=R19(0805BOTTOM)
+Added Component: Designator=R20(0805BOTTOM)
+Added Component: Designator=R21(0805BOTTOM)
+Added Component: Designator=U1(QFP64)
+Added Component: Designator=Y1(XTAL1)
+Added Pin To Net: NetName=AGND Pin=BR2-4
+Added Pin To Net: NetName=AGND Pin=FB1-2
+Added Net: Name=AGND
+Added Pin To Net: NetName=BUZZER Pin=JP4-3
+Added Pin To Net: NetName=BUZZER Pin=U1-57
+Added Net: Name=BUZZER
+Added Pin To Net: NetName=DIG1 Pin=DG1-12
+Added Pin To Net: NetName=DIG1 Pin=Q1-3
+Added Net: Name=DIG1
+Added Pin To Net: NetName=DIG2 Pin=DG1-9
+Added Pin To Net: NetName=DIG2 Pin=Q2-3
+Added Net: Name=DIG2
+Added Pin To Net: NetName=DIG3 Pin=DG1-8
+Added Pin To Net: NetName=DIG3 Pin=Q3-3
+Added Net: Name=DIG3
+Added Pin To Net: NetName=DIGITO1 Pin=R7-1
+Added Pin To Net: NetName=DIGITO1 Pin=U1-20
+Added Net: Name=DIGITO1
+Added Pin To Net: NetName=DIGITO2 Pin=R6-1
+Added Pin To Net: NetName=DIGITO2 Pin=U1-21
+Added Net: Name=DIGITO2
+Added Pin To Net: NetName=DIGITO3 Pin=R8-1
+Added Pin To Net: NetName=DIGITO3 Pin=U1-25
+Added Net: Name=DIGITO3
+Added Pin To Net: NetName=FAN Pin=JP4-4
+Added Pin To Net: NetName=FAN Pin=U1-56
+Added Net: Name=FAN
+Added Pin To Net: NetName=GND Pin=BR1-2
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C6-2
+Added Pin To Net: NetName=GND Pin=C7-2
+Added Pin To Net: NetName=GND Pin=C8-2
+Added Pin To Net: NetName=GND Pin=CN1-3
+Added Pin To Net: NetName=GND Pin=CN1-5
+Added Pin To Net: NetName=GND Pin=FB1-1
+Added Pin To Net: NetName=GND Pin=JP4-1
+Added Pin To Net: NetName=GND Pin=LED1-2
+Added Pin To Net: NetName=GND Pin=LED2-2
+Added Pin To Net: NetName=GND Pin=LED3-2
+Added Pin To Net: NetName=GND Pin=LED4-2
+Added Pin To Net: NetName=GND Pin=Q1-2
+Added Pin To Net: NetName=GND Pin=Q2-2
+Added Pin To Net: NetName=GND Pin=Q3-2
+Added Pin To Net: NetName=GND Pin=SW1-2
+Added Pin To Net: NetName=GND Pin=SW2-2
+Added Pin To Net: NetName=GND Pin=SW3-2
+Added Pin To Net: NetName=GND Pin=SW4-2
+Added Pin To Net: NetName=GND Pin=SW5-2
+Added Pin To Net: NetName=GND Pin=U1-9
+Added Pin To Net: NetName=GND Pin=U1-10
+Added Pin To Net: NetName=GND Pin=U1-13
+Added Pin To Net: NetName=GND Pin=U1-40
+Added Net: Name=GND
+Added Pin To Net: NetName=HEAT Pin=JP4-5
+Added Pin To Net: NetName=HEAT Pin=U1-55
+Added Net: Name=HEAT
+Added Pin To Net: NetName=LED1 Pin=R14-2
+Added Pin To Net: NetName=LED1 Pin=U1-26
+Added Net: Name=LED1
+Added Pin To Net: NetName=LED2 Pin=R15-2
+Added Pin To Net: NetName=LED2 Pin=U1-5
+Added Net: Name=LED2
+Added Pin To Net: NetName=LED3 Pin=R16-2
+Added Pin To Net: NetName=LED3 Pin=U1-16
+Added Net: Name=LED3
+Added Pin To Net: NetName=LED4 Pin=R13-2
+Added Pin To Net: NetName=LED4 Pin=U1-17
+Added Net: Name=LED4
+Added Pin To Net: NetName=NetBR2_1 Pin=BR2-1
+Added Pin To Net: NetName=NetBR2_1 Pin=U1-49
+Added Net: Name=NetBR2_1
+Added Pin To Net: NetName=NetBR2_2 Pin=BR2-2
+Added Pin To Net: NetName=NetBR2_2 Pin=U1-50
+Added Net: Name=NetBR2_2
+Added Pin To Net: NetName=NetC4_2 Pin=C4-2
+Added Pin To Net: NetName=NetC4_2 Pin=U1-11
+Added Pin To Net: NetName=NetC4_2 Pin=Y1-1
+Added Net: Name=NetC4_2
+Added Pin To Net: NetName=NetC5_2 Pin=C5-2
+Added Pin To Net: NetName=NetC5_2 Pin=U1-12
+Added Pin To Net: NetName=NetC5_2 Pin=Y1-2
+Added Net: Name=NetC5_2
+Added Pin To Net: NetName=NetDG1_1 Pin=DG1-1
+Added Pin To Net: NetName=NetDG1_1 Pin=R17-2
+Added Net: Name=NetDG1_1
+Added Pin To Net: NetName=NetDG1_2 Pin=DG1-2
+Added Pin To Net: NetName=NetDG1_2 Pin=R18-2
+Added Net: Name=NetDG1_2
+Added Pin To Net: NetName=NetDG1_3 Pin=DG1-3
+Added Pin To Net: NetName=NetDG1_3 Pin=R19-2
+Added Net: Name=NetDG1_3
+Added Pin To Net: NetName=NetDG1_4 Pin=DG1-4
+Added Pin To Net: NetName=NetDG1_4 Pin=R20-2
+Added Net: Name=NetDG1_4
+Added Pin To Net: NetName=NetDG1_5 Pin=DG1-5
+Added Pin To Net: NetName=NetDG1_5 Pin=R21-2
+Added Net: Name=NetDG1_5
+Added Pin To Net: NetName=NetDG1_7 Pin=DG1-7
+Added Pin To Net: NetName=NetDG1_7 Pin=R11-1
+Added Net: Name=NetDG1_7
+Added Pin To Net: NetName=NetDG1_10 Pin=DG1-10
+Added Pin To Net: NetName=NetDG1_10 Pin=R12-1
+Added Net: Name=NetDG1_10
+Added Pin To Net: NetName=NetDG1_11 Pin=DG1-11
+Added Pin To Net: NetName=NetDG1_11 Pin=R10-1
+Added Net: Name=NetDG1_11
+Added Pin To Net: NetName=NetJP2_1 Pin=JP2-1
+Added Pin To Net: NetName=NetJP2_1 Pin=U1-51
+Added Net: Name=NetJP2_1
+Added Pin To Net: NetName=NetJP2_2 Pin=JP2-2
+Added Pin To Net: NetName=NetJP2_2 Pin=U1-52
+Added Net: Name=NetJP2_2
+Added Pin To Net: NetName=NetLED1_1 Pin=LED1-1
+Added Pin To Net: NetName=NetLED1_1 Pin=R14-1
+Added Net: Name=NetLED1_1
+Added Pin To Net: NetName=NetLED2_1 Pin=LED2-1
+Added Pin To Net: NetName=NetLED2_1 Pin=R15-1
+Added Net: Name=NetLED2_1
+Added Pin To Net: NetName=NetLED3_1 Pin=LED3-1
+Added Pin To Net: NetName=NetLED3_1 Pin=R16-1
+Added Net: Name=NetLED3_1
+Added Pin To Net: NetName=NetLED4_1 Pin=LED4-1
+Added Pin To Net: NetName=NetLED4_1 Pin=R13-1
+Added Net: Name=NetLED4_1
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-1
+Added Pin To Net: NetName=NetQ1_1 Pin=R7-2
+Added Net: Name=NetQ1_1
+Added Pin To Net: NetName=NetQ2_1 Pin=Q2-1
+Added Pin To Net: NetName=NetQ2_1 Pin=R6-2
+Added Net: Name=NetQ2_1
+Added Pin To Net: NetName=NetR2_1 Pin=R2-1
+Added Pin To Net: NetName=NetR2_1 Pin=SW2-1
+Added Pin To Net: NetName=NetR2_1 Pin=U1-32
+Added Net: Name=NetR2_1
+Added Pin To Net: NetName=NetR3_1 Pin=R3-1
+Added Pin To Net: NetName=NetR3_1 Pin=SW1-1
+Added Pin To Net: NetName=NetR3_1 Pin=U1-31
+Added Net: Name=NetR3_1
+Added Pin To Net: NetName=NetR4_1 Pin=R4-1
+Added Pin To Net: NetName=NetR4_1 Pin=SW3-1
+Added Pin To Net: NetName=NetR4_1 Pin=U1-33
+Added Net: Name=NetR4_1
+Added Pin To Net: NetName=NetR5_1 Pin=R5-1
+Added Pin To Net: NetName=NetR5_1 Pin=SW4-1
+Added Pin To Net: NetName=NetR5_1 Pin=U1-34
+Added Net: Name=NetR5_1
+Added Pin To Net: NetName=NetR9_1 Pin=R9-1
+Added Pin To Net: NetName=NetR9_1 Pin=SW5-1
+Added Pin To Net: NetName=NetR9_1 Pin=U1-61
+Added Net: Name=NetR9_1
+Added Pin To Net: NetName=PTA6 Pin=U1-38
+Added Net: Name=PTA6
+Added Pin To Net: NetName=PTA7 Pin=U1-37
+Added Net: Name=PTA7
+Added Pin To Net: NetName=PTC0 Pin=H2-2
+Added Net: Name=PTC0
+Added Pin To Net: NetName=PTC1 Pin=H2-3
+Added Net: Name=PTC1
+Added Pin To Net: NetName=PTD0 Pin=JP3-1
+Added Net: Name=PTD0
+Added Pin To Net: NetName=PTD1 Pin=JP3-2
+Added Net: Name=PTD1
+Added Pin To Net: NetName=PTD2 Pin=U1-46
+Added Net: Name=PTD2
+Added Pin To Net: NetName=PTD3 Pin=U1-45
+Added Net: Name=PTD3
+Added Pin To Net: NetName=PTD4 Pin=U1-44
+Added Net: Name=PTD4
+Added Pin To Net: NetName=PTD5 Pin=U1-24
+Added Net: Name=PTD5
+Added Pin To Net: NetName=PTD6 Pin=U1-23
+Added Net: Name=PTD6
+Added Pin To Net: NetName=PTD7 Pin=U1-22
+Added Net: Name=PTD7
+Added Pin To Net: NetName=PTE2 Pin=U1-54
+Added Net: Name=PTE2
+Added Pin To Net: NetName=PTE3 Pin=U1-53
+Added Net: Name=PTE3
+Added Pin To Net: NetName=PTE4 Pin=JP1-1
+Added Pin To Net: NetName=PTE4 Pin=U1-39
+Added Net: Name=PTE4
+Added Pin To Net: NetName=PTF0 Pin=H1-2
+Added Net: Name=PTF0
+Added Pin To Net: NetName=PTF1 Pin=JP1-2
+Added Net: Name=PTF1
+Added Pin To Net: NetName=PTF7 Pin=H2-1
+Added Net: Name=PTF7
+Added Pin To Net: NetName=RESET Pin=C3-1
+Added Pin To Net: NetName=RESET Pin=CN1-10
+Added Pin To Net: NetName=RESET Pin=R1-1
+Added Pin To Net: NetName=RESET Pin=U1-63
+Added Net: Name=RESET
+Added Pin To Net: NetName=SEG_A Pin=R10-2
+Added Pin To Net: NetName=SEG_A Pin=U1-18
+Added Net: Name=SEG_A
+Added Pin To Net: NetName=SEG_B Pin=R11-2
+Added Pin To Net: NetName=SEG_B Pin=U1-19
+Added Net: Name=SEG_B
+Added Pin To Net: NetName=SEG_C Pin=R20-1
+Added Pin To Net: NetName=SEG_C Pin=U1-59
+Added Net: Name=SEG_C
+Added Pin To Net: NetName=SEG_DP Pin=R19-1
+Added Pin To Net: NetName=SEG_DP Pin=U1-2
+Added Net: Name=SEG_DP
+Added Pin To Net: NetName=SEG_D Pin=R18-1
+Added Pin To Net: NetName=SEG_D Pin=U1-60
+Added Net: Name=SEG_D
+Added Pin To Net: NetName=SEG_E Pin=R17-1
+Added Pin To Net: NetName=SEG_E Pin=U1-14
+Added Net: Name=SEG_E
+Added Pin To Net: NetName=SEG_F Pin=R12-2
+Added Pin To Net: NetName=SEG_F Pin=U1-15
+Added Net: Name=SEG_F
+Added Pin To Net: NetName=SEG_G Pin=R21-1
+Added Pin To Net: NetName=SEG_G Pin=U1-1
+Added Net: Name=SEG_G
+Added Pin To Net: NetName=SWDCLK Pin=CN1-4
+Added Pin To Net: NetName=SWDCLK Pin=U1-62
+Added Net: Name=SWDCLK
+Added Pin To Net: NetName=SWDIO Pin=CN1-2
+Added Pin To Net: NetName=SWDIO Pin=U1-64
+Added Net: Name=SWDIO
+Added Pin To Net: NetName=VCC Pin=C1-1
+Added Pin To Net: NetName=VCC Pin=C2-1
+Added Pin To Net: NetName=VCC Pin=C6-1
+Added Pin To Net: NetName=VCC Pin=C7-1
+Added Pin To Net: NetName=VCC Pin=C8-1
+Added Pin To Net: NetName=VCC Pin=CN1-1
+Added Pin To Net: NetName=VCC Pin=JP4-2
+Added Pin To Net: NetName=VCC Pin=R1-2
+Added Pin To Net: NetName=VCC Pin=R2-2
+Added Pin To Net: NetName=VCC Pin=R3-2
+Added Pin To Net: NetName=VCC Pin=R4-2
+Added Pin To Net: NetName=VCC Pin=R5-2
+Added Pin To Net: NetName=VCC Pin=R9-2
+Added Pin To Net: NetName=VCC Pin=U1-7
+Added Pin To Net: NetName=VCC Pin=U1-8
+Added Pin To Net: NetName=VCC Pin=U1-41
+Added Net: Name=VCC
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component BR1 TEMPERATURA
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component BR2 ANALOG
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component C1 100nF
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component C2 100nF
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component C3 1uF
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component C4 22pF
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component C5 22pF
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component C6 100nF
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component C7 100nF
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component C8 100nF
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component CN1 HEADER 2x5
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component DG1 5121CG-HG
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component FB1 Ferrite bead
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component H1 HEADER 2
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component H2 HEADER 3
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component JP1 HEADER 2
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component JP2 UART1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component JP3 HEADER 2
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component JP4 HEADER 6
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component LED1 LED
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component LED2 LED
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component LED3 LED
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component LED4 LED
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component Q1 BC847
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component Q2 BC847
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component Q3 BC847
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R1 10k
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R2 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R3 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R4 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R5 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R6 2K7
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R7 4K7
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R8 2K7
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R9 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R10 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R11 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R12 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R13 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R14 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R15 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R16 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R17 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R18 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R19 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R20 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component R21 RES1
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component SW1 -
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component SW2 +
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component SW3 ON/OFF
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component SW4 TIEMPO
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component SW5 MODO
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component TORR1 
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component TORR2 
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component TORR3 
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component U1 MKE02Z64VQH4
+Added Member To Class: ClassName=FreidoraAireCuki Member=Component Y1 4-20MHz
+Change Room Name: Old Name=TecSix16 New Name=FreidoraAireCuki
+Change Room Scope: Old Scope=InComponentClass('TecSix16') New Scope=InComponentClass('FreidoraAireCuki')

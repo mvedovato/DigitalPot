@@ -1,0 +1,20 @@
+Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~TecSix16.PrjPCB|ReportField=ProjectFullPath~D:\Mis documentos\Marianito\Protel\Marianito\Sixto\TecSix16\TecSix16.PrjPCB|ReportField=Title~Bill of Materials For Project [TecSix16.PrjPCB] (No PCB Document Selected)|ReportField=TotalQuantity~31|ReportField=ReportTime~7:12:01|ReportField=ReportDate~11/10/2019|ReportField=ReportDateTime~11/10/2019 7:12:01|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~|ReportField=CurrentTime~|ReportField=Date~|ReportField=DocumentFullPathAndName~|ReportField=DocumentName~|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~|ReportField=Organization~|ReportField=ProjectName~|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=PageSetup~Record=PageOptions:CenterHorizontal=True:CenterVertical=True:PrintScale=0.73:XCorrection=1.00:YCorrection=1.00:PrintKind=0:BorderSize=5000000:LeftOffset=0:BottomOffset=0:Orientation=2:PaperLength=1000:PaperWidth=1000:Scale=100:PaperSource=7:PrintQuality=-4:MediaType=1:DitherType=10:PaperKind=A4:PrintScaleMode=1|ReportField=DataSourceFileName~TecSix16.PrjPCB|ReportField=DataSourceFullPath~D:\Mis documentos\Marianito\Protel\Marianito\Sixto\TecSix16\TecSix16.PrjPCB
+ALIMENTACIÓN 5VCC|BORNERA|BR1|B2PVM|BORNERA2|1
+ADC0.12|BORNERA|BR2|B2PVM|BORNERA2|1
+100nF|Non polarized capacitor|C1, C2|C-0805_N_WAVE|CAP|2
+1uF|Non polarized capacitor|C3|C-0805_N|CAP|1
+22pF|Non polarized capacitor|C4, C5|C-0805_N|CAP|2
+HEADER 2x5||CN1|SIP2X5|HEADER 5X2|1
+LADO KE02||CN1|SIP2X5|HEADER 5X2|1
+Conector de teclado 8 pines|Conector de teclado 8 pines|CN2|TECLADO8|CONECTOR TECLADO 8|1
+1N4148|High Conductance Fast Diode|D1, D2, D3, D4|MiniMELF|1N4148|4
+HEADER 8|CONECTOR DE TECLADO|H1, H2, H4, H5|SIP8|HEADER 8|4
+HEADER 4||H3|SIP4|HEADER 4|1
+HEADER 2||JP1, JP3|SIP2|HEADER 2|2
+UART1||JP2|SIP2|HEADER 2|1
+Value||LADO Debugger||LPC1769 BOARD|1
+10k|Resistor SMD 0805|R1|R-0805_N_WAVE|Res SMD 0805|1
+470|Resistor|R1|R-0805_N|RES1|1
+||TORR1, TORR2, TORR3, TORR4|TORRETA D=4MM|TORRETA|4
+MKE02Z64VQH4|IC MCU 32BIT 64KB FLASH 64QFP|U1|QFP64|MKE02Z64VQH4|1
+4-20MHz|CRYSTAL|Y1|XTAL1|CRYSTAL|1

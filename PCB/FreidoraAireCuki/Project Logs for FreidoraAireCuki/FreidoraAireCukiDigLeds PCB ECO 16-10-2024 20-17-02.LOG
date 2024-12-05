@@ -1,0 +1,7 @@
+Added Pin To Net: NetName=LED2_DR Pin=CN2-1
+Added Pin To Net: NetName=LED1_DR Pin=CN2-2
+Added Pin To Net: NetName=LED5_DR Pin=CN2-4
+Added Pin To Net: NetName=LED9_DR Pin=CN2-6
+Added Pin To Net: NetName=LED6_DR Pin=CN2-8
+Added Pin To Net: NetName=LED7_DR Pin=CN2-10
+Added Pin To Net: NetName=LED8_DR Pin=CN2-12

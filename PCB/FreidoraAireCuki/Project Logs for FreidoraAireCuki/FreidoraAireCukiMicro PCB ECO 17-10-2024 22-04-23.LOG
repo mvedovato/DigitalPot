@@ -1,0 +1,11 @@
+Added Pin To Net: NetName=LED1_DR Pin=Q4-3
+Added Pin To Net: NetName=LED2_DR Pin=Q5-3
+Added Pin To Net: NetName=LED3_DR Pin=Q6-3
+Added Pin To Net: NetName=LED4_DR Pin=Q7-3
+Added Pin To Net: NetName=LED5_DR Pin=Q8-3
+Added Pin To Net: NetName=LED6_DR Pin=Q9-3
+Added Pin To Net: NetName=LED7_DR Pin=Q10-3
+Added Pin To Net: NetName=LED8_DR Pin=Q11-3
+Added Pin To Net: NetName=LED9_DR Pin=Q12-3
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component CN4 HEADER 8X2
+Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component CN5 HEADER 8X2

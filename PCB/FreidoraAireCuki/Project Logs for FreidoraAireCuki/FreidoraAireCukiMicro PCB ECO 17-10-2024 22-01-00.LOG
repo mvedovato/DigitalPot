@@ -1,0 +1,40 @@
+Change Component DesignItemId : Designator=CN4 Old DesignItemId= New DesignItemId=HEADER 8X2
+Change Component DesignItemId : Designator=CN5 Old DesignItemId= New DesignItemId=HEADER 8X2
+Change Component Comment : Designator=CN4 Old Comment=Comment New Comment=HEADER 8X2
+Change Component Comment : Designator=CN5 Old Comment=Comment New Comment=HEADER 8X2
+Change Component Description : Designator=CN4 Old Description= New Description=HEADER DE 2 X8
+Change Component Description : Designator=CN5 Old Description= New Description=HEADER DE 2 X8
+Change Component Library : Designator=CN4 Old Library= New Library=DEKSOR SCH.SchLib
+Change Component Library : Designator=CN5 Old Library= New Library=DEKSOR SCH.SchLib
+Added Pin To Net: NetName=DIGITO1 Pin=CN4-1
+Added Pin To Net: NetName=LED2_DR Pin=CN4-2
+Added Pin To Net: NetName=SEG_A Pin=CN4-3
+Added Pin To Net: NetName=LED1_DR Pin=CN4-4
+Added Pin To Net: NetName=SEG_F Pin=CN4-5
+Added Pin To Net: NetName=LED5_DR Pin=CN4-6
+Added Pin To Net: NetName=SEG_D Pin=CN4-7
+Added Pin To Net: NetName=LED9_DR Pin=CN4-8
+Added Pin To Net: NetName=SEG_E Pin=CN4-9
+Added Pin To Net: NetName=LED6_DR Pin=CN4-10
+Added Pin To Net: NetName=SEG_DP Pin=CN4-11
+Added Pin To Net: NetName=NetR3_1 Pin=CN4-13
+Added Pin To Net: NetName=NetR9_1 Pin=CN4-14
+Added Pin To Net: NetName=VCC Pin=CN4-15
+Added Pin To Net: NetName=GND Pin=CN4-16
+Added Pin To Net: NetName=LED8_DR Pin=CN5-1
+Added Pin To Net: NetName=DIGITO2 Pin=CN5-2
+Added Pin To Net: NetName=LED7_DR Pin=CN5-3
+Added Pin To Net: NetName=SEG_B Pin=CN5-4
+Added Pin To Net: NetName=DIGITO3 Pin=CN5-6
+Added Pin To Net: NetName=SEG_C Pin=CN5-8
+Added Pin To Net: NetName=SEG_G Pin=CN5-10
+Added Pin To Net: NetName=LED3_DR Pin=CN5-12
+Added Pin To Net: NetName=NetR4_1 Pin=CN5-13
+Added Pin To Net: NetName=LED4_DR Pin=CN5-14
+Added Pin To Net: NetName=NetR2_1 Pin=CN5-15
+Added Pin To Net: NetName=NetR5_1 Pin=CN5-16
+Change Net Name : Old Net Name=NetR2_1 New Net Name=TIEMPO
+Change Net Name : Old Net Name=NetR3_1 New Net Name=SUBIR
+Change Net Name : Old Net Name=NetR4_1 New Net Name=ONOFF
+Change Net Name : Old Net Name=NetR5_1 New Net Name=MODO
+Change Net Name : Old Net Name=NetR9_1 New Net Name=BAJAR
