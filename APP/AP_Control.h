@@ -37,9 +37,9 @@
 #define FIN			3
 
 #define DISABLE								255
-#define	DEFAULTsETpOINT						160
+#define	DEFAULTsETpOINT						200
 #define	MINIMOsETPOINT						60
-#define	MAXIMOsETPOINT						170
+#define	MAXIMOsETPOINT						245
 #define	DEFAULTmINUTOScOCCION				20
 #define	MINIMOmINUTOScOCCION				1
 #define	MAXIMOmINUTOScOCCION				60
