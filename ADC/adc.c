@@ -31,6 +31,9 @@ const uint16_t cuentasNTC10K[] = {2997, 2818, 2630, 2437, 2241, 2048, 1859, 1678
 uint16_t medida[MUESTRAS][ CANALES ];
 volatile uint32_t Vlr_Mdd[ CANALES ] = { 999, 999 };
 
+uint8_t fProcesarTemp = 0;
+uint16_t temporal;
+
 // Drivers
 void ADC_Init( void )
 {
@@ -82,24 +85,32 @@ void ADC0_IRQHandler(void)
 static void ADC_InterruptCallback(void)
 {
 	static int sampl = 0, i = 0 ;
-	medida[sampl][i]= ADC_GetChannelResult( );		//12 bits. medida[0] channel 12 Watts, medida[1] channel 13 dBm
-	i++;
-	i%=2;
-	if( i )
-	{
-		ADC_DisableChannels();
-		ADC_EnableChannel(ADC_CHANNEL_1);
+
+	if( !fProcesarTemp ){
+		medida[sampl][i]= ADC_GetChannelResult( );		//12 bits. medida[0] channel 12 Watts, medida[1] channel 13 dBm
 		sampl++;
 		if( sampl == MUESTRAS )
 		{
 			sampl = 0;
+			fProcesarTemp = 1;
 		}
+	}else{
+		temporal = ADC_GetChannelResult( );
+	}
+	i++;
+	i%=2;
+	if( i )	{
+		ADC_DisableChannels();
+		ADC_EnableChannel(ADC_CHANNEL_1);
+
 	}
 	else
 	{
 		ADC_DisableChannels();
 		ADC_EnableChannel(ADC_CHANNEL_0);
 	}
+
+
 
 
 }
@@ -124,29 +135,32 @@ void conversor(void)
 	uint32_t New_Mdd = 0, aux;
 	uint8_t j, i, k;
 
+	if( fProcesarTemp ){
+		for ( k=0 ; k < CANALES ; k++ )
+		{
+			for( i = 0; i < MUESTRAS - 1 ; i ++)
+				for( j = i + 1; j < MUESTRAS; j ++ )
+					if( medida[ j ][ k ] < medida[ i ][ k ] )
+					{
+						aux = medida[ j ][ k ];
+						medida[ j ][ k ] = medida[ i ][ k ];
+						medida[ i ][ k ] = aux;
 
-    for ( k=0 ; k < CANALES ; k++ )
-	{
-		for( i = 0; i < MUESTRAS - 1 ; i ++)
-			for( j = i + 1; j < MUESTRAS; j ++ )
-				if( medida[ j ][ k ] < medida[ i ][ k ] )
-				{
-					aux = medida[ j ][ k ];
-					medida[ j ][ k ] = medida[ i ][ k ];
-					medida[ i ][ k ] = aux;
+					}
+			for( i = LIMiNFERIORmUESTRAS; i < LIMsUPERIORmUESTRAS;  i++){
+				New_Mdd += medida[ i ][ k ];
 
-				}
-		for( i = LIMiNFERIORmUESTRAS; i < LIMsUPERIORmUESTRAS;  i++)
-			New_Mdd += medida[ i ][ k ];
+			}
 
-		New_Mdd /= CANTpROMmUESTRAS;
+			New_Mdd /= CANTpROMmUESTRAS;
 
-		Vlr_Mdd[k] = New_Mdd;
+			Vlr_Mdd[k] = New_Mdd;
 
-		New_Mdd = 0;
+			New_Mdd = 0;
 
+		}
+		fProcesarTemp = 0;
 	}
-
 
 
  }
@@ -199,3 +213,10 @@ uint16_t GetNTC10K( void )
 	return (uint16_t)grados;
 }
 
+void ADC_DisableIRQ( void ){
+	NVIC_DisableIRQ(ADC0_IRQn);
+}
+
+void ADC_EnableIRQ( void ){
+	NVIC_EnableIRQ(ADC0_IRQn);
+}

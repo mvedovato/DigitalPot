@@ -84,6 +84,8 @@ void InicializarADC(void);
 void conversor( void );
 uint16_t GetNTC100K( void );
 uint16_t GetNTC10K( void );
+void ADC_DisableIRQ( void );
+void ADC_EnableIRQ( void );
 
 
 

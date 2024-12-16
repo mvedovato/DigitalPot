@@ -18,7 +18,7 @@
 
 #define 	UART1bAUDrATE	9600
 #define		UART1_TAMANIO_COLA_RX					20
-#define		UART1_TAMANIO_COLA_TX					20
+#define		UART1_TAMANIO_COLA_TX					100
 
 
 typedef struct
