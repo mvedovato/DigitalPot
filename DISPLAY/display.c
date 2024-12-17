@@ -39,6 +39,7 @@ const static uint16_t Tabla_Digitos_BCD_7seg[] = {CERO,UNO,DOS,TRES,CUATRO,CINCO
 uint16_t MSG_DSP[ N_DIGITOS ] = { CERO ,UNO , DOS};			//!< 	Digitos del display
 
 extern uint8_t emergencia;
+extern uint8_t arranque;
 /***********************************************************************************************************************************
  *** VARIABLES GLOBALES PRIVADAS AL MODULO
  **********************************************************************************************************************************/
@@ -140,7 +141,7 @@ void Display( int16_t Val, uint8_t ndsp )
 {
 	int8_t a;
 
-	if(emergencia){
+	if( emergencia || arranque ){
 		if( Val == 257 ){
 			MSG_DSP[ 0 ] = 0xff;
 			MSG_DSP[ 1 ] = 0xff;

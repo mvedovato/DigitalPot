@@ -33,16 +33,16 @@ int main( void )
 
 	Inicializacion( );
 
-	imprimirParametro = TEMPERATURAfREIR;
-	minutosCoccion = ParametrosDefault[0].minutos;
-	setpoint = ParametrosDefault[0].temperatura;
+	imprimirParametro = MODOaRRANQUE;
+	minutosCoccion = ParametrosDefault[PAPAfRITA].minutos;
+	setpoint = ParametrosDefault[PAPAfRITA].temperatura;
 
 	while ( 1 )
 	{
 
 
 		c = GetKey ( );
-    	imprimirCuki( imprimirParametro );
+		imprimirCuki( imprimirParametro );
 
     	if( emergencia )
     		estado = EMERGENCIA;
@@ -142,6 +142,19 @@ int main( void )
     	}
 
     	switch(estado){
+    	case ARRANQUE:
+    		if(  GetFparpadeo( ) )
+    			LedsOn();
+    		else
+    			LedsOff();
+
+
+    		if( Arranque() ){
+    			estado = IDLE;
+    			imprimirParametro = TEMPERATURAfREIR;
+    		}
+    		break;
+
     	case IDLE:
     		BarraProgreso( OFF, minutosCoccion );
     		estadoCuki(OFF);

@@ -37,7 +37,7 @@
 #define FIN			3
 
 #define DISABLE								255
-#define	DEFAULTsETpOINT						200
+#define	DEFAULTsETpOINT						180
 #define	MINIMOsETPOINT						60
 #define	MAXIMOsETPOINT						245
 #define	DEFAULTmINUTOScOCCION				20
@@ -46,12 +46,19 @@
 #define	DEFAULTsEGUNDOScICLObUZZER			2
 #define	BANDA								4
 #define	CANTIDADmODOS						5
+#define	CARNE								0
+#define	PAPAfRITA							1
+#define	POIO								2
+#define	PESCAU								3
+#define	MUFFIN								4
+
 
 #define	TEMPERATURAfREIR					0
 #define	SETPOINT							1
 #define	MINUTOScCOCCION						2
 #define	ELEGIRmODO							3
 #define MODOeMERGENCIA						4
+#define MODOaRRANQUE						4
 
 /***********************************************************************************************************************************
  *** TIPO DE DATOS GLOBALES

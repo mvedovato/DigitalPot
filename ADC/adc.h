@@ -50,11 +50,6 @@ typedef void (*ADC_Handler)(void);
 #define		POSITIVO		1
 
 //Estados
-#define		IDLE						0
-#define		FUNCwATTSeSCALA0a3			1
-#define		FUNCwATTSeSCALA0a30			2
-#define		FUNCwATTSeSCALA0a300		3
-#define		FUNCwATTSeSCALA0a3000		4
 
 //#define		FACTOReSCALA0a3WATTS		2.47423206341735
 #define		FACTOReSCALA0a3WATTS		2.44948974278318

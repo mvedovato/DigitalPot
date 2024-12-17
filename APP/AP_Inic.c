@@ -67,5 +67,7 @@ void Inicializacion( void )
 	InicializarUart1( UART1bAUDrATE );
 
 	TimerStart(E_PARPADEO, 1, parpadeo, SEG);
+	TimerStart(E_ARRANQUE , T_ARRANQUE , EV_Arranque , SEG );
+
 
 }

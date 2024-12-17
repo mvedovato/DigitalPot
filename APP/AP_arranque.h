@@ -37,7 +37,9 @@ extern uint8_t	fArranque;
 /***********************************************************************************************************************************
  *** PROTOTIPOS DE FUNCIONES GLOBALES
  **********************************************************************************************************************************/
-void Arranque ( void );
+uint8_t Arranque ( void );
 void EV_Arranque ( void );
+uint8_t GetFlagArranque( void );
+void SetFlagArranque( uint8_t  );
 
 #endif /* SOURCES_APLICACION_AP_ARRANQUE_H_ */

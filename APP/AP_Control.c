@@ -32,8 +32,9 @@ uint8_t setpoint;
 uint8_t imprimirParametro;
 uint8_t indiceModo = CANTIDADmODOS;
 uint8_t emergencia = 0;
+uint8_t arranque = 1;
 
-const parametrosCuki ParametrosDefault[ CANTIDADmODOS ] = {{DEFAULTmINUTOScOCCION, DEFAULTsETpOINT}, {22, 200}, {15,180}, {5,200}, {10,180}};
+const parametrosCuki ParametrosDefault[ CANTIDADmODOS ] = {{DEFAULTmINUTOScOCCION, DEFAULTsETpOINT}, {22, 200}, {21,180}, {11,180}, {18,200}};
 
 extern uint8_t setpoint;
 extern uint32_t BufferLeds;

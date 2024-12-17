@@ -157,12 +157,13 @@
 #define		PARPADEO		2
 #define		abs(x)			( x > 0 ) ? (x) : (-(x))
 
-#define		IDLE			0
-#define		COCCION			1
-#define		PAUSA			2
-#define		COCINADO		3
-#define		ELECCIONmODO	4
-#define		EMERGENCIA		5
+#define		ARRANQUE		0
+#define		IDLE			1
+#define		COCCION			2
+#define		PAUSA			3
+#define		COCINADO		4
+#define		ELECCIONmODO	5
+#define		EMERGENCIA		6
 
 /***********************************************************************************************************************************
  *** PROTOTIPOS DE FUNCIONES GLOBALES

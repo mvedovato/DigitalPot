@@ -75,7 +75,7 @@ typedef void (*Timer_Handler)(void);
 #define 	T_PARPADEODISPLAY		5
 #define 	T_PROGRAMACION 			3
 #define 	T_CONVERSOR				5
-#define 	T_ARRANQUE				30
+#define 	T_ARRANQUE				5
 #define 	T_IMPRIMIR				20
 #define		TIEMPOoNEsHOT			2
 #define 	T_IMPRIMIRpARAMETROS	3
