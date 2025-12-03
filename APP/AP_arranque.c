@@ -35,7 +35,7 @@
 /***********************************************************************************************************************************
  *** VARIABLES GLOBALES PUBLICAS
  **********************************************************************************************************************************/
-extern uint8_t arranque;
+
 /***********************************************************************************************************************************
  *** VARIABLES GLOBALES PRIVADAS AL MODULO
  **********************************************************************************************************************************/
@@ -61,22 +61,33 @@ uint8_t	fArranque = 0;
  	@param 		void
 	@return 	void
 */
-uint8_t Arranque ( void ){
+void Arranque ( void )
+{
+
+	TimerStart( E_ARRANQUE , T_ARRANQUE , EV_Arranque , DEC );
+	fArranque = 1;
+
+	while ( fArranque )
+	{
+		TimerEvent( );
+		RefrescoDeDisplay( );
+		RefrescoDeLeds( );
+	}
 
 
-	return GetFlagArranque( );
+
+
 }
+
+/**
+	@fn  		void EV_Arranque ( void )
+	@brief 		Fin del tiempo de test de arranque
+ 	@author 	Ing. Marcelo Trujillo
+ 	@date 		13/7/2016
+ 	@param 		void
+	@return 	void
+*/
 void EV_Arranque ( void )
 {
-	fArranque = 1;
-	arranque = 0;
-}
-
-uint8_t GetFlagArranque( void ){
-	return fArranque;
-}
-
-void SetFlagArranque( uint8_t value ){
-	fArranque = value;
-
+	fArranque = 0;
 }

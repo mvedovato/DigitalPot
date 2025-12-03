@@ -1,6 +1,0 @@
-Removed Pin From Net: NetName=DP Pin=U1-2
-Added Pin To Net: NetName=MODO Pin=U1-4
-Added Pin To Net: NetName=TIEMPO Pin=U1-5
-Added Pin To Net: NetName=ONOFF Pin=U1-6
-Added Pin To Net: NetName=BAJAR Pin=U1-14
-Added Pin To Net: NetName=SUBIR Pin=U1-15

@@ -56,30 +56,28 @@ typedef void (*Timer_Handler)(void);
 #define		DECIMAS			100
 
 //!< Eventos reservados 0 al 5
-#define 	E_MODO					11
-#define 	E_IMPRIMIRpARAMETROS	12
-#define 	E_ONEsHOT		 		13
-#define 	E_BUZZER		 		14
-#define 	E_CONTROL		 		15
-#define 	E_BARRApPROGRESO		16
-#define 	E_PARPADEO		 		17
-#define 	E_REZAGOfAN				18
-#define 	E_PROGRAMACION 			19
+#define 	E_PARPADEORAPIDO 		0
+#define 	E_PARPADEOLENTO			1
+#define 	E_PARPADEODISPLAY 		2
+#define 	E_PROGRAMACION			3
 #define 	E_CONVERSOR				4
 #define 	E_ARRANQUE				5
 #define 	E_IMPRIMIR				6
-
+#define 	E_LCDGRAFICO			7
+#define 	E_TIMEOUT_VOLUME		8
+#define 	E_TIMEOUT_DRIVE			9
 
 #define 	T_PARPADEORAPIDO 		2
 #define 	T_PARPADEOLENTO			5
 #define 	T_PARPADEODISPLAY		5
 #define 	T_PROGRAMACION 			3
 #define 	T_CONVERSOR				5
-#define 	T_ARRANQUE				5
+#define 	T_ARRANQUE				30
 #define 	T_IMPRIMIR				20
-#define		TIEMPOoNEsHOT			2
-#define 	T_IMPRIMIRpARAMETROS	3
-#define 	T_ELEGIRmODO			5
+#define     TIEMPOdELAY     		250
+#define 	T_LCDGRAFICO			10
+#define     T_VOLUME	     		5
+#define 	T_DRIVE					5
 
 /***********************************************************************************************************************************
  *** MACROS GLOBALES
@@ -133,5 +131,6 @@ void TimerEvent( void );
 void SysTick_InterruptCallback( void );
 void SysTick_SetHandlers( void (* handler )(void) );
 
+void DelayMs (volatile uint32_t);
 
 #endif /* TIMER_H_ */

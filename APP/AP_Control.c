@@ -1,9 +1,9 @@
 /*******************************************************************************************************************************//**
- * @details		Proyecto: AirFryerCuki
+ * @details		Proyecto: TK18101-Empanadas
  * @file		AP_Control.c
  * @brief		DESCRIPCION ---------------
- * @date		09/11/2024
- * @author		Marianito
+ * @date		27/4/2017
+ * @author		Ing. Marcelo Trujillo
  *
  **********************************************************************************************************************************/
 
@@ -22,405 +22,150 @@
 #include "teclado.h"
 #include "io.h"
 
-uint8_t fIntervaloProgreso = 0;
-uint8_t fParpadeo = 0;
-uint8_t fTimeoutBuzzer = 0;
-uint32_t temperatura;
-uint32_t temperaturaAmbiente;
-uint32_t minutosCoccion;
-uint8_t setpoint;
-uint8_t imprimirParametro;
-uint8_t indiceModo = CANTIDADmODOS;
-uint8_t emergencia = 0;
-uint8_t arranque = 1;
+/***********************************************************************************************************************************
+ *** DEFINES PRIVADOS AL MODULO
+ **********************************************************************************************************************************/
 
-const parametrosCuki ParametrosDefault[ CANTIDADmODOS ] = {{DEFAULTmINUTOScOCCION, DEFAULTsETpOINT}, {22, 200}, {21,180}, {11,180}, {18,200}};
+/***********************************************************************************************************************************
+ *** MACROS PRIVADAS AL MODULO
+ **********************************************************************************************************************************/
 
-extern uint8_t setpoint;
-extern uint32_t BufferLeds;
-extern uint8_t aTrabajar;
-extern uint8_t enPausa;
-extern uint8_t felegirmodo;
+/***********************************************************************************************************************************
+ *** TIPOS DE DATOS PRIVADOS AL MODULO
+ **********************************************************************************************************************************/
 
-void Control ( void ){
-	 temperatura = GetNTC100K();
-	 temperaturaAmbiente = GetNTC10K();
+/***********************************************************************************************************************************
+ *** TABLAS PRIVADAS AL MODULO
+ **********************************************************************************************************************************/
 
-	 if( temperatura == 999 ){
-		 emergencia = 1;
-		 return;
-	 }
+/***********************************************************************************************************************************
+ *** VARIABLES GLOBALES PUBLICAS
+ **********************************************************************************************************************************/
+uint8_t	EstadoAutomatico = TORTUGA;		//!< Variable de estado de la maquina de estados del ciclo auomatico
+uint8_t fLIEBRE_MANUAL;
+uint8_t fTORTUGA_MANUAL;
+uint8_t fPARADA_MANUAL = OFF;
+uint8_t fPARADA_AUTOMATICO = OFF;
+uint8_t fReja = OFF;
+uint8_t fTortuga,fLiebre;
+uint32_t ComienzoCalibracion , FinCalibracion;
+uint8_t fLLenar = 0;
 
-	if( temperaturaAmbiente == 999 ){
-			 emergencia = 1;
-			 return;
+/***********************************************************************************************************************************
+ *** VARIABLES GLOBALES PRIVADAS AL MODULO
+ **********************************************************************************************************************************/
+
+/***********************************************************************************************************************************
+ *** PROTOTIPO DE FUNCIONES PRIVADAS AL MODULO
+ **********************************************************************************************************************************/
+
+ /***********************************************************************************************************************************
+ *** FUNCIONES PRIVADAS AL MODULO
+ **********************************************************************************************************************************/
+
+ /***********************************************************************************************************************************
+ *** FUNCIONES GLOBALES AL MODULO
+ **********************************************************************************************************************************/
+void Control ( void )
+{
 	}
+/**
+	@fn  		void Control ( void )
+	@brief 		Realiza el funcionamiento del armado de las empanadas
+ 	@author 	Ing. Marcelo Trujillo
+ 	@date 		27/04/17
+ 	@param 		void
+	@return 	void
+*/
 
-	if( aTrabajar == ON ){
-		if( temperatura > setpoint ){
-			HeatOff();
-			LedHeat(OFF);
-		}
+void Automatico ( void )
+{
+	//uint32_t t_tortuga;
+	uint32_t t_liebre ;
 
-		if( temperatura < (setpoint-BANDA) ){
-			HeatOn();
-			LedHeat(ON);
-		}
-	}
-	else
+	switch ( EstadoAutomatico )
 	{
-		HeatOff();
-		LedHeat(OFF);
-	}
+		case TORTUGA:
+			TORTUGA_ON ;
+			LIEBRE_OFF ;
+			L_TIMER_TORTUGA = PARPADEOLENTO ;
+			L_TIMER_LIEBRE = APAGADO ;
 
-}
+			TORTUGA_ON ;
+			LIEBRE_OFF ;
 
-
-void cicloCoccion( void ){
-
-	LedHeat(OFF);
-	HeatOff();
-	TimerStop(E_REZAGOfAN);
-	TimerStart(E_REZAGOfAN, 1, ApagarFan, MIN);
-	aTrabajar = OFF;
-
-
-}
-
-void ApagarFan( void ){
-	FanOff();
-
-}
-
-uint8_t BarraProgreso( uint8_t actividad, uint32_t minutosCuki )
-{
-	static uint8_t estado = 0;
-	uint8_t working = ON;
-
-	if( actividad == OFF ){
-		estado = 0;
-		LedsBarraProgreso(OFF);
-		TimerStop(E_BARRApPROGRESO);
-	}else{
-
-	}
-	switch( estado ){
-	case 0:
-		if( actividad == ON ){
-			estado = 1;
-			LedsBarraProgreso(ON);
-			//(minutosCuki*60)/6 = minutosCuki*10). Saco factor comun el disparo del timer
-			TimerStart(E_BARRApPROGRESO, (minutosCuki*10), IntervaloProgreso, SEG);
-		}
-		break;
-
-	case 1:
-		if( fParpadeo )
-			LED7oN;
-		else
-			LED7oFF;
-
-		if( fIntervaloProgreso ){
-			fIntervaloProgreso = 0;
-			estado = 2;
-			LED7oFF;
-			TimerStart(E_BARRApPROGRESO, (minutosCuki*10), IntervaloProgreso, SEG);
-		}
-		break;
-
-	case 2:
-		if( fParpadeo )
-			LED6oN;
-		else
-			LED6oFF;
-
-		if( fIntervaloProgreso ){
-			fIntervaloProgreso = 0;
-			estado = 3;
-			LED7oFF;
-			LED6oFF;
-			TimerStart(E_BARRApPROGRESO, (minutosCuki*10), IntervaloProgreso, SEG);
-		}
-		break;
-
-	case 3:
-		if( fParpadeo )
-			LED5oN;
-		else
-			LED5oFF;
-
-		if( fIntervaloProgreso ){
-			fIntervaloProgreso = 0;
-			estado = 4;
-			LED7oFF;
-			LED6oFF;
-			LED5oFF;
-			TimerStart(E_BARRApPROGRESO, (minutosCuki*10), IntervaloProgreso, SEG);
-		}
-		break;
-
-	case 4:
-		if( fParpadeo )
-			LED4oN;
-		else
-			LED4oFF;
-
-		if( fIntervaloProgreso ){
-			fIntervaloProgreso = 0;
-			estado = 5;
-			LED7oFF;
-			LED6oFF;
-			LED5oFF;
-			LED4oFF;
-			TimerStart(E_BARRApPROGRESO, (minutosCuki*10), IntervaloProgreso, SEG);
-		}
-		break;
-
-	case 5:
-		if( fParpadeo )
-			LED0oN;
-		else
-			LED0oFF;
-
-		if( fIntervaloProgreso ){
-			fIntervaloProgreso = 0;
-			estado = 6;
-			LED7oFF;
-			LED6oFF;
-			LED5oFF;
-			LED4oFF;
-			LED0oFF;
-			TimerStart(E_BARRApPROGRESO, (minutosCuki*10), IntervaloProgreso, SEG);
-		}
-		break;
-
-	case 6:
-		if( fParpadeo )
-			LED1oN;
-		else
-			LED1oFF;
-
-		if( fIntervaloProgreso ){
-			fIntervaloProgreso = 0;
-			estado = 0;
-			LED7oFF;
-			LED6oFF;
-			LED5oFF;
-			LED4oFF;
-			LED0oFF;
-			LED1oFF;
-			TimerStop(E_BARRApPROGRESO);
-			working = OFF;
-
-		}
-		break;
-
-	default:
-		break;
-
-	}
-
-
-	return working;
-}
-
-void LedsBarraProgreso(uint8_t actividad ){
-	if( actividad == OFF ){
-		LED1oFF;
-		LED0oFF;
-		LED4oFF;
-		LED5oFF;
-		LED6oFF;
-		LED7oFF;
-	}
-
-	if( actividad == ON ){
-		LED1oN;
-		LED0oN;
-		LED4oN;
-		LED5oN;
-		LED6oN;
-		LED7oN;
-	}
-}
-
-void IntervaloProgreso( void ){
-	fIntervaloProgreso = 1;
-}
-
-void parpadeo( void ){
-	fParpadeo ++;
-	fParpadeo %= 2;
-	TimerStart(E_PARPADEO, 1, parpadeo, SEG);
-}
-
-void estadoCuki( uint8_t actividad ){
-	if( actividad == OFF ){
-		LED3oFF;
-		LED2oN;
-		//Por las dudas
-		HeatOff();
-
-	}else{
-		LED2oFF;
-		LED3oN;
-	}
-
-
-}
-
-void LedHeat( uint8_t actividad ){
-	if( actividad == ON )
-		LED8oN;
-	else
-		LED8oFF;
-}
-
-
-uint8_t CicloBuzzer( uint8_t actividad, uint32_t segundosCuki, uint8_t oneShot )
-{
-	static uint8_t estado = 0;
-	uint8_t working = ON;
-
-	if( actividad == ON  && oneShot == ON ){
-		TimerStart(E_ONEsHOT, TIEMPOoNEsHOT, OneShot, SEG);
-		BuzzerOn();
-	}
-	if( actividad == OFF ){
-		estado = 0;
-		BuzzerOff();
-		TimerStop(E_BUZZER);
-	}
-
-	switch(estado){
-	case 0:
-		if( actividad == ON  && oneShot == OFF ){
-			estado = 1;
-			TimerStart(E_BUZZER, segundosCuki, TimeoutBuzzer, SEG);
-			BuzzerOn();
-
-		}
-		break;
-	case 1:
-		if( actividad == ON && oneShot == OFF ){
-			if( fTimeoutBuzzer ){
-				fTimeoutBuzzer = 0;
-				estado = 2;
-				TimerStart(E_BUZZER, segundosCuki, TimeoutBuzzer, SEG);
-				BuzzerOff();
-			}
-		}
-
-		break;
-
-	case 2:
-		if( actividad == ON && oneShot == OFF ){
-			if( fTimeoutBuzzer ){
-				fTimeoutBuzzer = 0;
-				estado = 3;
-				TimerStart(E_BUZZER, segundosCuki, TimeoutBuzzer, SEG);
-				BuzzerOn();
-			}
-		}
-
-		break;
-
-	case 3:
-		if( actividad == ON && oneShot == OFF ){
-			if( fTimeoutBuzzer ){
-				fTimeoutBuzzer = 0;
-				estado = 4;
-				TimerStart(E_BUZZER, segundosCuki, TimeoutBuzzer, SEG);
-				BuzzerOff();
-			}
-		}
-
-		break;
-
-	case 4:
-		if( actividad == ON && oneShot == OFF ){
-			if( fTimeoutBuzzer ){
-				fTimeoutBuzzer = 0;
-				estado = 5;
-				TimerStart(E_BUZZER, segundosCuki, TimeoutBuzzer, SEG);
-				BuzzerOn();
-			}
-		}
-
-		break;
-
-	case 5:
-		if( actividad == ON  && oneShot == OFF){
-			if( fTimeoutBuzzer ){
-				fTimeoutBuzzer = 0;
-				estado = 0;
-				TimerStop(E_BUZZER);
-				BuzzerOff();
-				working = OFF;
-			}
-		}
-
-		break;
-	default:
-		estado = 0;
-		working = OFF;
-		BuzzerOff();
-		break;
-	}
-	return working;
-
-}
-
-void TimeoutBuzzer( void ){
-	fTimeoutBuzzer = 1;
-}
-void OneShot(void ){
-	BuzzerOff();
-}
-
-uint8_t GetFparpadeo( void ){
-	return fParpadeo;
-}
-
-void imprimirParametros( void ){
-	imprimirParametro = TEMPERATURAfREIR;
-}
-
-void elegirModo( void ){
-	felegirmodo = 1;
-}
-
-void imprimirCuki( uint8_t parametro ){
-
-	switch( parametro ){
-	case TEMPERATURAfREIR:
-		Display( temperatura, 0);
-		break;
-
-	case SETPOINT:
-		Display( setpoint, 0);
-		break;
-
-	case MINUTOScCOCCION:
-		Display( minutosCoccion, 0);
-		break;
-
-	case ELEGIRmODO:
-		Display( indiceModo + 1 , 0); //Número de programa que arranca en 1
-		break;
-
-	case MODOeMERGENCIA:
-		if(  GetFparpadeo( ) ){
-			Display(257, 0);
-		}
-		else{
-			Display(258, 0);
-		}
-		break;
-
-	default:
-		Display( temperatura, 0);
+			//TimerStart( E_TORTUGA , T_TORTUGA , Ev_Tortuga , MIN );//MIN
+			fTortuga = ON;
+			EstadoAutomatico = DISABLE;
 			break;
+		case DEMORA:
+			TORTUGA_OFF ;
+			LIEBRE_OFF ;
+			L_TIMER_TORTUGA = APAGADO ;
+			L_TIMER_LIEBRE = APAGADO ;
 
+			TimerStart( E_DEMORA , T_DEMORA + T_ADD_DEMORA , Ev_Demora , DEC );
+			EstadoAutomatico = DISABLE;
+
+			break;
+		case LIEBRE:
+			fTortuga = OFF;
+			TORTUGA_OFF ;
+			LIEBRE_ON ;
+
+			L_TIMER_TORTUGA = APAGADO ;
+			L_TIMER_LIEBRE = PARPADEOLENTO ;
+			L_MARCHA_TOTUGA = APAGADO;
+			L_MARCHA_LIEBRE = ENCENDIDO;
+
+			TimerStart( E_LIEBRE , T_LIEBRE , Ev_Liebre , MIN ); // MIN
+			fLiebre = ON;
+			EstadoAutomatico = DISABLE;
+			break;
+		case FIN:
+			BEEP_ON;
+			LIEBRE_OFF ;
+			TORTUGA_OFF ;
+
+			L_TIMER_TORTUGA = APAGADO ;
+			L_TIMER_LIEBRE = APAGADO ;
+			L_PARADA = ENCENDIDO;
+			L_MARCHA_LIEBRE = APAGADO;
+			L_MARCHA_TOTUGA = APAGADO;
+
+			fLiebre = OFF;
+
+			TimerStart( E_BEEP , T_BEEP , Ev_Beep , DEC );
+			TimerStart( E_FIN_BEEP , T_FIN_BEEP , Ev_FinBeep , SEG );
+
+			EstadoAutomatico = TORTUGA;
+			fPARADA_AUTOMATICO = OFF;
+
+			Display( T_LIEBRE ,DSP2 );
+			Display( T_TORTUGA ,DSP1 );
+
+			break;
+	}
+
+	if (  Reja == OFF )
+	{
+		if ( fProgramando == OFF )
+		{
+			//t_tortuga = GetTimer( E_TORTUGA );
+			t_liebre = GetTimer( E_LIEBRE );
+
+			//if ( fTortuga )
+			//	Display( t_tortuga + 1 ,DSP1);
+
+			if ( fLiebre )
+			{
+				Display( 0 , DSP1 );
+				Display( t_liebre + 1 , DSP2 );
+			}
+		}
 	}
 }
+
+void ParadaAutomatico( void )
+{
+	}

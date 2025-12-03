@@ -2,8 +2,8 @@
  *
  * @file		DR_Entradas.h
  * @brief		DESCRIPCION ------------------------
- * @date		08/11/2024
- * @author		Marianito
+ * @date		24/4/2017
+ * @author		Ing. Marcelo Trujillo
  *
  **********************************************************************************************************************************/
 
@@ -33,45 +33,101 @@
 /***********************************************************************************************************************************
  *** MACROS GLOBALES
  **********************************************************************************************************************************/
-// Heat enciende con 0
-#define HEAToFF			Outputs |= 0x00000001
-#define HEAToN			Outputs &= 0xFFFFFFFE
+#define OUT0oN		Outputs |= 0x00000001
+#define OUT0oFF		Outputs &= 0xFFFFFFFE
 
-// Fan enciende con 0
-#define FANoFF			Outputs |= 0x00000002
-#define FANoN			Outputs &= 0xFFFFFFFD
+#define OUT1oN		Outputs |= 0x00000002
+#define OUT1oFF		Outputs &= 0xFFFFFFFD
 
-#define BUZZERoN		Outputs |= 0x00000004
-#define BUZZERoFF		Outputs &= 0xFFFFFFFB
+#define OUT2oN		Outputs |= 0x00000004
+#define OUT2oFF		Outputs &= 0xFFFFFFFB
 
+#define OUT3oN		Outputs |= 0x00000008
+#define OUT3oFF		Outputs &= 0xFFFFFFF7
 
-//Leds
-#define LED0oN		BufferLeds |= 0x00000001
-#define LED0oFF		BufferLeds &= 0xFFFFFFFE
+#define OUT4oN		Outputs |= 0x00000010
+#define OUT4oFF		Outputs &= 0xFFFFFFEF
 
-#define LED1oN		BufferLeds |= 0x00000002
-#define LED1oFF		BufferLeds &= 0xFFFFFFFD
+#define OUT5oN		Outputs |= 0x00000020
+#define OUT5oFF		Outputs &= 0xFFFFFFDF
 
-#define LED2oN		BufferLeds |= 0x00000004
-#define LED2oFF		BufferLeds &= 0xFFFFFFFB
+#define OUT6oN		Outputs |= 0x00000040
+#define OUT6oFF		Outputs &= 0xFFFFFFBF
 
-#define LED3oN		BufferLeds |= 0x00000008
-#define LED3oFF		BufferLeds &= 0xFFFFFFF7
+#define OUT7oN		Outputs |= 0x00000080
+#define OUT7oFF		Outputs &= 0xFFFFFF7F
 
-#define LED4oN		BufferLeds |= 0x00000010
-#define LED4oFF		BufferLeds &= 0xFFFFFFEF
+#define OUT8oN		Outputs |= 0x00000100
+#define OUT8oFF		Outputs &= 0xFFFFFEFF
 
-#define LED5oN		BufferLeds |= 0x00000020
-#define LED5oFF		BufferLeds &= 0xFFFFFFDF
+#define OUT9oN		Outputs |= 0x00000200
+#define OUT9oFF		Outputs &= 0xFFFFFDFF
 
-#define LED6oN		BufferLeds |= 0x00000040
-#define LED6oFF		BufferLeds &= 0xFFFFFFBF
+#define OUT10oN		Outputs |= 0x00000400
+#define OUT10oFF	Outputs &= 0xFFFFFBFF
 
-#define LED7oN		BufferLeds |= 0x00000080
-#define LED7oFF		BufferLeds &= 0xFFFFFF7F
+#define OUT11oN		Outputs |= 0x00000800
+#define OUT11oFF	Outputs &= 0xFFFFF7FF
 
-#define LED8oN		BufferLeds |= 0x00000100
-#define LED8oFF		BufferLeds &= 0xFFFFFEFF
+#define OUT12oN		Outputs |= 0x00001000
+#define OUT12oFF	Outputs &= 0xFFFFEFFF
+
+#define OUT13oN		Outputs |= 0x00002000
+#define OUT13oFF	Outputs &= 0xFFFFDFFF
+
+#define OUT14oN		Outputs |= 0x00004000
+#define OUT14oFF	Outputs &= 0xFFFFBFFF
+
+#define OUT15oN		Outputs |= 0x00008000
+#define OUT15oFF	Outputs &= 0xFFFF7FFF
+
+#define OUT16oN		Outputs |= 0x00010000
+#define OUT16oFF	Outputs &= 0xFFFEFFFF
+
+#define OUT17oN		Outputs |= 0x00020000
+#define OUT17oFF	Outputs &= 0xFFFDFFFF
+
+#define OUT18oN		Outputs |= 0x00040000
+#define OUT18oFF	Outputs &= 0xFFFBFFFF
+
+#define OUT19oN		Outputs |= 0x00080000
+#define OUT19oFF	Outputs &= 0xFFF7FFFF
+
+#define OUT20oN		Outputs |= 0x00100000
+#define OUT20oFF	Outputs &= 0xFFEFFFFF
+
+#define OUT21oN		Outputs |= 0x00200000
+#define OUT21oFF	Outputs &= 0xFFDFFFFF
+
+#define OUT22oN		Outputs |= 0x00400000
+#define OUT22oFF	Outputs &= 0xFFBFFFFF
+
+#define OUT23oN		Outputs |= 0x00800000
+#define OUT23oFF	Outputs &= 0xFF7FFFFF
+
+#define OUT24oN		Outputs |= 0x01000000
+#define OUT24oFF	Outputs &= 0xFEFFFFFF
+
+#define OUT25oN		Outputs |= 0x02000000
+#define OUT25oFF	Outputs &= 0xFDFFFFFF
+
+#define OUT26oN		Outputs |= 0x04000000
+#define OUT26oFF	Outputs &= 0xFBFFFFFF
+
+#define OUT27oN		Outputs |= 0x08000000
+#define OUT27oFF	Outputs &= 0xF7FFFFFF
+
+#define OUT28oN		Outputs |= 0x10000000
+#define OUT28oFF	Outputs &= 0xEFFFFFFF
+
+#define OUT29oN		Outputs |= 0x20000000
+#define OUT29oFF	Outputs &= 0xDFFFFFFF
+
+#define OUT30oN		Outputs |= 0x40000000
+#define OUT30oFF	Outputs &= 0xBFFFFFFF
+
+#define OUT31oN		Outputs |= 0x80000000
+#define OUT31oFF	Outputs &= 0x7FFFFFFF
 
 /***********************************************************************************************************************************
  *** TIPO DE DATOS GLOBALES
@@ -91,18 +147,15 @@ extern uint32_t MascaraOutputs;
 void Debounce ( void );
 uint16_t get_Entradas( void );
 void RefrescoOut ( void );
-void SetLeds( uint8_t , uint8_t );
-void SetOuts( uint8_t , uint8_t );
-void HeatOn( void );
-void HeatOff( void );
-void FanOn( void );
-void FanOff( void );
-void BuzzerOn( void );
-void BuzzerOff( void );
-void LedCicloOn( void );
-void LedCicloOff( void );
-void LedsOn( void );
-void LedsOff( void );
+void TogglearSalidas( uint8_t );
+uint8_t GetFvolume( void );
+void SetFvolume( uint8_t );
+uint8_t GetFdrive( void );
+void SetFdrive( uint8_t );
+void timeoutVolume(void);
+void timeoutDrive(void);
+void Control_DigPot_Volume(uint8_t);
+void Control_DigPot_Drive(uint8_t);
 
 
 

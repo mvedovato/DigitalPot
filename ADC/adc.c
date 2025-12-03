@@ -19,20 +19,14 @@
 #include "init.h"
 
 
+
 static ADC_Handler g_callback;
 
-//Termistor NTC 100K a VCC
-const uint16_t gradosNTC100K[] = {5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200,205,210,215,220,225,230,235,240,245,250};
-const uint16_t cuentasNTC100K[] = {155,195,244,303,430,438,447,480,505,554,596,654,728,786,860,935,1026,1125,1200,1307,1423,1514,1621,1729,1845,1994,2110,2300,2366,2498,2622,2738,2854,2953,3077,3177,3259,3342,3417,3483,3557,3615,3673,3723,3764,3805,3976,3986,3995,4003};
-//Termistor NTC 10K a masa
-const uint16_t gradosNTC10K[] = {0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100};
-const uint16_t cuentasNTC10K[] = {2997, 2818, 2630, 2437, 2241, 2048, 1859, 1678, 1524, 1349, 1203, 1070, 950, 842, 746, 661, 585, 519, 460, 408, 363};
+
 
 uint16_t medida[MUESTRAS][ CANALES ];
-volatile uint32_t Vlr_Mdd[ CANALES ] = { 999, 999 };
+volatile uint32_t Vlr_Mdd[ CANALES ] = { 999, 999, 999 };
 
-uint8_t fProcesarTemp = 0;
-uint16_t temporal;
 
 // Drivers
 void ADC_Init( void )
@@ -42,7 +36,8 @@ void ADC_Init( void )
 	ADC_SC2 = 0;
 	ADC_SC4 = 0;//ADC_SC4_ASCANE_MASK | ADC_SC4_AFDEP(8-1);	//8 canales de FIFO con scan mode
 	ADC_SC1 = ADC_SC1_ADCO_MASK | ADC_SC1_AIEN_MASK | ADC_SC1_ADCH(0x1F);	//interrupt enabled, continuous conversion, canales deshabilitados
-
+	//ADC_EnableChannel(ChVBAT);
+	ADC_EnableChannel(ChCORRIENTE);
 	NVIC_EnableIRQ(ADC0_IRQn);
 }
 
@@ -84,33 +79,44 @@ void ADC0_IRQHandler(void)
 
 static void ADC_InterruptCallback(void)
 {
-	static int sampl = 0, i = 0 ;
+	static int sampl = 0, i = 0;
 
-	if( !fProcesarTemp ){
-		medida[sampl][i]= ADC_GetChannelResult( );		//12 bits. medida[0] channel 12 Watts, medida[1] channel 13 dBm
-		sampl++;
-		if( sampl == MUESTRAS )
-		{
-			sampl = 0;
-			fProcesarTemp = 1;
-		}
-	}else{
-		temporal = ADC_GetChannelResult( );
-	}
-	i++;
-	i%=2;
-	if( i )	{
-		ADC_DisableChannels();
-		ADC_EnableChannel(ADC_CHANNEL_1);
+	medida[sampl][i]= ADC_GetChannelResult( );			//12 bits. medida[0] channel 12 Watts, medida[1] channel 13 dBm
 
-	}
-	else
+
+	switch( i )
 	{
+
+	case 0:	//Corriente
 		ADC_DisableChannels();
-		ADC_EnableChannel(ADC_CHANNEL_0);
+		ADC_EnableChannel(ChVBAT);
+		break;
+
+	case 1:	//VBat
+		ADC_DisableChannels();
+		ADC_EnableChannel(ChVPANEL);
+		break;
+
+	case 2:	//VPanel
+		ADC_DisableChannels();
+		ADC_EnableChannel(ChCORRIENTE);
+		break;
+
+	default:
+		ADC_DisableChannels();
+		ADC_EnableChannel(ChVBAT);
+		break;
+
 	}
 
 
+	i++;
+	if( i == CANALES )
+	{
+		i = 0;
+		sampl++;
+		sampl %= MUESTRAS;
+	}
 
 
 }
@@ -119,14 +125,15 @@ void InicializarADC( void )
 {
 	ADC_SetCallback(ADC_InterruptCallback);
 	ADC_Init();
-	ADC_EnableChannel(ADC_CHANNEL_0);
+	ADC_EnableChannel(ADC_CHANNEL_12);
+	//ADC_EnableChannel(ADC_CHANNEL_13);
 	TimerStart( E_CONVERSOR , T_CONVERSOR , EV_adc , DEC );
-
+	TimerStart( E_IMPRIMIR , T_IMPRIMIR , ImprimirADC , DEC );
 }
 
 
 //********************************************************************************************
-//	Proposito: Lectura del valor de ADC y promedio
+//	Proposito: Lectura del valor de tempratura
 //	Parametros: void.
 //	Retorna: void
 //********************************************************************************************
@@ -135,88 +142,58 @@ void conversor(void)
 	uint32_t New_Mdd = 0, aux;
 	uint8_t j, i, k;
 
-	if( fProcesarTemp ){
-		for ( k=0 ; k < CANALES ; k++ )
-		{
-			for( i = 0; i < MUESTRAS - 1 ; i ++)
-				for( j = i + 1; j < MUESTRAS; j ++ )
-					if( medida[ j ][ k ] < medida[ i ][ k ] )
-					{
-						aux = medida[ j ][ k ];
-						medida[ j ][ k ] = medida[ i ][ k ];
-						medida[ i ][ k ] = aux;
 
-					}
-			for( i = LIMiNFERIORmUESTRAS; i < LIMsUPERIORmUESTRAS;  i++){
-				New_Mdd += medida[ i ][ k ];
+    for ( k=0 ; k < CANALES ; k++ )
+	{
+		for( i = 0; i < MUESTRAS - 1 ; i ++)
+			for( j = i + 1; j < MUESTRAS; j ++ )
+				if( medida[ j ][ k ] < medida[ i ][ k ] )
+				{
+					aux = medida[ j ][ k ];
+					medida[ j ][ k ] = medida[ i ][ k ];
+					medida[ i ][ k ] = aux;
 
-			}
+				}
+		for( i = LIMiNFERIORmUESTRAS; i < LIMsUPERIORmUESTRAS;  i++)
+			New_Mdd += medida[ i ][ k ];
 
-			New_Mdd /= CANTpROMmUESTRAS;
+		New_Mdd /= CANTpROMmUESTRAS;
 
-			Vlr_Mdd[k] = New_Mdd;
+		Vlr_Mdd[k] = New_Mdd;
 
-			New_Mdd = 0;
+		New_Mdd = 0;
 
-		}
-		fProcesarTemp = 0;
 	}
+
 
 
  }
 
-uint16_t GetNTC100K( void )
+uint32_t ConvertirTensionBateria( uint32_t valor )
 {
-	float grados, aux;
-	int i;
+	valor = (valor * 5 * 1000)/4095;
+	valor = valor * FACTORbATERIA;
+	return valor;
 
-	if( Vlr_Mdd[1] < (cuentasNTC100K[0] -5 ) ){
-		grados = 999;
-		return (uint16_t)grados;
-	}
-
-	for( i = 1; i < 50; i ++)
-		if( Vlr_Mdd[1] < cuentasNTC100K[i] )
-			break;
-
-	//Pendiente positiva
-	grados = Vlr_Mdd[1]*(float)( gradosNTC100K[i-1] - gradosNTC100K[i])/(cuentasNTC100K[i-1] - cuentasNTC100K[i]);
-	aux = (float)( cuentasNTC100K[i-1]*gradosNTC100K[i]) - (float)(cuentasNTC100K[i]*gradosNTC100K[i-1]);
-	aux = aux / ( cuentasNTC100K[i-1] - cuentasNTC100K[i]);
-	grados = grados	+ aux;
-	return (uint16_t)grados;
 }
 
-uint16_t GetNTC10K( void )
+uint32_t ConvertirTensionPanel( uint32_t valor )
 {
-	float grados, aux;
-	int i;
+	valor = (valor * 5 * 1000)/4095;
+	valor = valor * FACTORpANEL;
+	return valor;
 
-	if( Vlr_Mdd[0] > (cuentasNTC10K[0] - 5 ) ){
-		grados = 999;
-		return (uint16_t)grados;
-	}
-
-	if( Vlr_Mdd[0] < (cuentasNTC10K[13] ) ){		//Mayor a 65º
-		grados = 999;
-		return (uint16_t)grados;
-	}
-	for( i = 1; i < 21; i ++)
-		if( Vlr_Mdd[0] < cuentasNTC10K[i] )
-			break;
-
-	//Pendiente negativa
-	grados = Vlr_Mdd[0]*(float)( gradosNTC10K[i-1]-gradosNTC10K[i])/( cuentasNTC10K[i-1]-cuentasNTC10K[i]);
-	aux = (float)( cuentasNTC10K[i-1]*gradosNTC10K[i]) - (float)(cuentasNTC10K[i]*gradosNTC10K[i-1]);
-	aux = aux / ( cuentasNTC10K[i-1] - cuentasNTC10K[i]);
-	grados = grados	+ aux;
-	return (uint16_t)grados;
 }
 
-void ADC_DisableIRQ( void ){
-	NVIC_DisableIRQ(ADC0_IRQn);
-}
+int32_t ConvertirCorrienteCarga( uint32_t valor )
+{
+	int32_t retorno;
+	retorno = (valor * 5 * 1000)/4095;
+	retorno = (retorno * PENDcORRIENTE) + ORDoRIGENcORRIENTE;
+	return retorno;
 
-void ADC_EnableIRQ( void ){
-	NVIC_EnableIRQ(ADC0_IRQn);
+}
+void ImprimirADC( void )
+{
+
 }

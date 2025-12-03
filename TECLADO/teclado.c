@@ -11,7 +11,7 @@
  *** INCLUDES
  **********************************************************************************************************************************/
 #include <teclado.h>
-#include <AP_arranque.h>
+
 /***********************************************************************************************************************************
  *** DEFINES PRIVADOS AL MODULO
  **********************************************************************************************************************************/
@@ -63,17 +63,10 @@ static uint8_t KeysScan(void)
 {
 	uint8_t Key = NO_KEY;
 
-	if ( GetPIN( tec_bajar , BAJO ) )
+	if ( GetPIN( tecla0 , BAJO ) )
 		Key = 0 ;
-	if ( GetPIN( tec_subir , BAJO ) )
+	if ( GetPIN( tecla1 , BAJO ) )
 		Key = 1 ;
-	if ( GetPIN( tec_modo , BAJO ) )
-		Key = 2 ;
-	if ( GetPIN( tec_onOff , BAJO ) )
-		Key = 3 ;
-	if ( GetPIN( tec_tiempo , BAJO ) )
-		Key = 4 ;
-
 	return Key;
 }
  /***********************************************************************************************************************************
@@ -162,13 +155,62 @@ void KeysDebounce( void )
 uint8_t GetKey( void )
 {
 	uint8_t Key = NO_KEY;
-	if( GetFlagArranque() )
-		Control();
+
 	TimerEvent( );
+	RefrescoDeDisplay( );
+	RefrescoDeLeds( );
+	Control ( );
 
 	Key = key;
 	key = NO_KEY;
 	return Key;
 }
 
+uint8_t TecMebrana( uint8_t tecla )
+{
+	switch( tecla )
+		{
+		case 0:
+			return TECLAuNO;
+			break;
+		case 1:
+			return TECLAdOS;
+			break;
+		case 2:
+			return TECLAtRES;
+			break;
+		case 4:
+			return TECLAcUATRO;
+			break;
+		case 5:
+			return TECLAcINCO;
+			break;
+		case 6:
+			return TECLAsEIS;
+			break;
+		case 8:
+			return TECLAsIETE;
+			break;
+		case 9:
+			return TECLAoCHO;
+			break;
+		case 10:
+			return TECLAnUEVE;
+			break;
+		case 12:
+			return TECLAaST;
+			break;
+		case 13:
+			return TECLAcERO;
+			break;
+		case 14:
+			return TECLAnUM;
+			break;
+
+		default:
+			return NO_KEY;
+			break;
+
+		}
+}
 

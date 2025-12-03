@@ -1,7 +1,0 @@
-Removed Pin From Net: NetName=VCC Pin=CN2-10
-Removed Pin From Net: NetName=GND Pin=CN2-12
-Removed Pin From Net: NetName=SEG_DP Pin=CN3-8
-Removed Pin From Net: NetName=SEG_DP Pin=R19-1
-Removed Member From Class: ClassName=FreidoraAireCukiDigLeds Member=R19
-Added Pin To Net: NetName=GND Pin=CN2-10
-Added Pin To Net: NetName=VCC Pin=CN2-12

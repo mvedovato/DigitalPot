@@ -5,11 +5,21 @@
  *      Author: mariano
  */
 
+#include "timer.h"
+
+
+/*******************************************************************************************************************************//**
+ * @details		Proyecto: Template
+ * @file		PR_timers.c
+ * @brief		DESCRIPCION ---------------
+ * @date		17/6/2016
+ * @author		Ing. Marcelo Trujillo
+ *
+ **********************************************************************************************************************************/
 
 /***********************************************************************************************************************************
  *** INCLUDES
  **********************************************************************************************************************************/
-#include "timer.h"
 
 
 /***********************************************************************************************************************************
@@ -298,8 +308,8 @@ void TimerClose(void)
 
 /**
 	\fn  uint32_t GetTicksDelSistma( void )
-	\brief Toma el valor al vuelo de los ticks del sistema
- 	\details Lee una variable global que se incrementa cada un ms
+	\brief Toma el valor al vuelo de los tics del sistema
+ 	\details Lee una variable global que se incremanta cada un ms
  	\param void
  	\return valor de los ticks del sistema
 */
@@ -313,20 +323,24 @@ uint32_t GetTicksDelSistma( void )
 
 void Ev_Tortuga ( void )
 {
-
+	EstadoAutomatico = DEMORA;
+	return;
 }
 void Ev_Liebre ( void )
 {
-
+	EstadoAutomatico = FIN;
+	return;
 }
 void Ev_Demora ( void )
 {
-
+	EstadoAutomatico = LIEBRE;
+	return;
 }
 
 void Ev_tecla0a3 ( void )
 {
-
+	flag0a3 = 1;
+	return;
 }
 
 void Ev_Beep ( void )
@@ -335,12 +349,12 @@ void Ev_Beep ( void )
 	if( fbeep )
 	{
 		fbeep = 0;
-		BuzzerOff();
+		BEEP_OFF;
 	}
 	else
 	{
 		fbeep = 1;
-		BuzzerOn();
+		BEEP_ON;
 	}
 	TimerStart( E_BEEP , T_BEEP , Ev_Beep , DEC );
 
@@ -349,13 +363,15 @@ void Ev_Beep ( void )
 
 void Ev_FinBeep ( void )
 {
-	BuzzerOff();
+	BEEP_OFF;
 	TimerStop( E_BEEP );
 }
 
 void EV_Programa ( void )
 {
+	salir_programacion = OFF;
 
+	return;
 }
 
 void EV_Grabar ( void )
@@ -370,4 +386,16 @@ void EV_adc ( void )
 	TimerStart( E_CONVERSOR , T_CONVERSOR , EV_adc , DEC );
 }
 
+
+void DelayMs (volatile uint32_t tiempo)
+{
+        volatile uint32_t i;
+        while( tiempo )
+        {
+                for(i=0; i < TIEMPOdELAY; i++);
+                if( tiempo )
+                       tiempo--;
+        }
+
+}
 

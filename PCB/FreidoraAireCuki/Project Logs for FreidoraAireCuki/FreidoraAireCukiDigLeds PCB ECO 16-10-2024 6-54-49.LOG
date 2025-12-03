@@ -1,8 +1,0 @@
-Removed Pin From Net: NetName=GND Pin=LED10-2
-Removed Pin From Net: NetName=GND Pin=LED11-2
-Removed Pin From Net: NetName=LED2 Pin=R27-2
-Removed Pin From Net: NetName=LED1 Pin=R28-2
-Removed Member From Class: ClassName=FreidoraAireCukiDigLeds Member=LED10
-Removed Member From Class: ClassName=FreidoraAireCukiDigLeds Member=LED11
-Removed Member From Class: ClassName=FreidoraAireCukiDigLeds Member=R27
-Removed Member From Class: ClassName=FreidoraAireCukiDigLeds Member=R28

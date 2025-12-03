@@ -23,8 +23,7 @@
 /***********************************************************************************************************************************
  *** MACROS PRIVADAS AL MODULO
  **********************************************************************************************************************************/
-#define 	CANTsALIDAS		3
-#define 	CANTeNTRADAS	1
+#define 	CANTeNTRADAS	4
 #define 	ACEPTAReSTADO	10
 
 /***********************************************************************************************************************************
@@ -44,9 +43,11 @@ volatile uint16_t BufferEntradas = REPOSO;
  *** VARIABLES GLOBALES PRIVADAS AL MODULO
  **********************************************************************************************************************************/
 static uint8_t ContadorEstados[ CANTeNTRADAS ];
-uint32_t Outputs = 3;		//Arrancan heat y fan en OFF logica negativa
+uint32_t Outputs = 0;
 uint32_t MascaraOutputs = 0xffffffff;
-uint32_t BufferLeds = 0;
+uint8_t fTimeoutVolume = 0;
+uint8_t fTimeoutDrive = 0;
+
 
 /***********************************************************************************************************************************
  *** PROTOTIPO DE FUNCIONES PRIVADAS AL MODULO
@@ -74,6 +75,15 @@ void Debounce ( void )
 
 	if( GetPIN( IN2 , BAJO ) )
 		lectura =  0x01;
+
+	if( GetPIN( IN3 , BAJO ) )
+		lectura |= 0x02;
+
+	if( GetPIN( IN4 , BAJO ) )
+		lectura |= 0x04;
+
+	if( GetPIN( IN5 , BAJO ) )
+		lectura |= 0x08;
 
 	cambios = ( BufferEntradas ^ lectura );
 
@@ -117,180 +127,373 @@ uint16_t get_Entradas( void )
 */
 void RefrescoOut ( void )
 {
-	uint8_t i;
+
+
 	// Salidas Digitales ---------------------------------------------------------
-	for(i=0; i < CANTsALIDAS; i++)
-		SetOuts(i, (Outputs>>i)&0x01);
-	//Leds
-	for(i=0; i < 9; i++)
-		SetLeds(i, (BufferLeds>>i)&0x01);
+
 }
 
 
-
-
-void SetLeds( uint8_t nroLed, uint8_t actividad )
+void TogglearSalidas( uint8_t salida )
 {
-	switch(nroLed)
+	switch( salida )
 	{
 	case 0:
-		if( actividad )
-			SetPIN(led1, ON);
+		if( (Outputs >> 0) & 0x01 )
+			OUT0oFF;
 		else
-			SetPIN(led1, OFF);
+			OUT0oN;
 		break;
-
 	case 1:
-		if( actividad )
-			SetPIN(led2, ON);
+		if( (Outputs >> 1) & 0x01 )
+			OUT1oFF;
 		else
-			SetPIN(led2, OFF);
+			OUT1oN;
 		break;
-
 	case 2:
-		if( actividad )
-			SetPIN(led3, ON);
+		if( (Outputs >> 2) & 0x01 )
+			OUT2oFF;
 		else
-			SetPIN(led3, OFF);
+			OUT2oN;
 		break;
-
 	case 3:
-		if( actividad )
-			SetPIN(led4, ON);
+		if( (Outputs >> 3) & 0x01 )
+			OUT3oFF;
 		else
-			SetPIN(led4, OFF);
+			OUT3oN;
 		break;
-
 	case 4:
-		if( actividad )
-			SetPIN(led5, ON);
+		if( (Outputs >> 4) & 0x01 )
+			OUT4oFF;
 		else
-			SetPIN(led5, OFF);
+			OUT4oN;
 		break;
-
 	case 5:
-		if( actividad )
-			SetPIN(led6, ON);
+		if( (Outputs >> 5) & 0x01 )
+			OUT5oFF;
 		else
-			SetPIN(led6, OFF);
+			OUT5oN;
 		break;
-
 	case 6:
-		if( actividad )
-			SetPIN(led7, ON);
+		if( (Outputs >> 6) & 0x01 )
+			OUT6oFF;
 		else
-			SetPIN(led7, OFF);
+			OUT6oN;
 		break;
-
 	case 7:
-		if( actividad )
-			SetPIN(led8, ON);
+		if( (Outputs >> 7) & 0x01 )
+			OUT7oFF;
 		else
-			SetPIN(led8, OFF);
+			OUT7oN;
 		break;
-
 	case 8:
-		if( actividad )
-			SetPIN(led9, ON);
+		if( (Outputs >> 8) & 0x01 )
+			OUT8oFF;
 		else
-			SetPIN(led9, OFF);
+			OUT8oN;
+		break;
+	case 9:
+		if( (Outputs >> 9) & 0x01 )
+			OUT9oFF;
+		else
+			OUT9oN;
+		break;
+	case 10:
+		if( (Outputs >> 10) & 0x01 )
+			OUT10oFF;
+		else
+			OUT10oN;
+		break;
+	case 11:
+		if( (Outputs >> 11) & 0x01 )
+			OUT11oFF;
+		else
+			OUT11oN;
+		break;
+	case 12:
+		if( (Outputs >> 12) & 0x01 )
+			OUT12oFF;
+		else
+			OUT12oN;
+		break;
+	case 13:
+		if( (Outputs >> 13) & 0x01 )
+			OUT13oFF;
+		else
+			OUT13oN;
+		break;
+	case 14:
+		if( (Outputs >> 14) & 0x01 )
+			OUT14oFF;
+		else
+			OUT14oN;
+		break;
+	case 15:
+		if( (Outputs >> 15) & 0x01 )
+			OUT15oFF;
+		else
+			OUT15oN;
+		break;
+	case 16:
+		if( (Outputs >> 16) & 0x01 )
+			OUT16oFF;
+		else
+			OUT16oN;
+		break;
+	case 17:
+		if( (Outputs >> 17) & 0x01 )
+			OUT17oFF;
+		else
+			OUT17oN;
+		break;
+	case 18:
+		if( (Outputs >> 18) & 0x01 )
+			OUT18oFF;
+		else
+			OUT18oN;
+		break;
+	case 19:
+		if( (Outputs >> 19) & 0x01 )
+			OUT19oFF;
+		else
+			OUT19oN;
+		break;
+	case 20:
+		if( (Outputs >> 20) & 0x01 )
+			OUT20oFF;
+		else
+			OUT20oN;
+		break;
+	case 21:
+		if( (Outputs >> 21) & 0x01 )
+			OUT21oFF;
+		else
+			OUT21oN;
+		break;
+	case 22:
+		if( (Outputs >> 22) & 0x01 )
+			OUT22oFF;
+		else
+			OUT22oN;
+		break;
+	case 23:
+		if( (Outputs >> 23) & 0x01 )
+			OUT23oFF;
+		else
+			OUT23oN;
+		break;
+	case 24:
+		if( (Outputs >> 24) & 0x01 )
+			OUT24oFF;
+		else
+			OUT24oN;
+		break;
+	case 25:
+		if( (Outputs >> 25) & 0x01 )
+			OUT25oFF;
+		else
+			OUT25oN;
+		break;
+	case 26:
+		if( (Outputs >> 26) & 0x01 )
+			OUT26oFF;
+		else
+			OUT26oN;
+		break;
+	case 27:
+		if( (Outputs >> 27) & 0x01 )
+			OUT27oFF;
+		else
+			OUT27oN;
+		break;
+	case 28:
+		if( (Outputs >> 28) & 0x01 )
+			OUT28oFF;
+		else
+			OUT28oN;
+		break;
+	case 29:
+		if( (Outputs >> 29) & 0x01 )
+			OUT29oFF;
+		else
+			OUT29oN;
+		break;
+	case 30:
+		if( (Outputs >> 30) & 0x01 )
+			OUT30oFF;
+		else
+			OUT30oN;
+		break;
+	case 31:
+		if( (Outputs >> 31) & 0x01 )
+			OUT31oFF;
+		else
+			OUT31oN;
 		break;
 
-default:
-	break;
-	}
-}
-
-void LedsOff( void )
-{
-	LED0oFF;
-	LED1oFF;
-	LED2oFF;
-	LED3oFF;
-	LED4oFF;
-	LED5oFF;
-	LED6oFF;
-	LED7oFF;
-	LED8oFF;
-
-
-}
-
-void LedsOn( void )
-{
-	LED0oN;
-	LED1oN;
-	LED2oN;
-	LED3oN;
-	LED4oN;
-	LED5oN;
-	LED6oN;
-	LED7oN;
-	LED8oN;
-
-}
-void SetOuts( uint8_t nroOut, uint8_t actividad )
-{
-	switch(nroOut)
-	{
-	case 0:
-		if( actividad )
-			SetPIN( heat, OFFcUKI );
-		else
-			SetPIN( heat, ONcUKI );
-		break;
-
-	case 1:
-		if( actividad )
-			SetPIN( fan, OFFcUKI );
-		else
-			SetPIN( fan, ONcUKI );
-		break;
-
-	case 2:
-		if( actividad )
-			SetPIN( buzzer, ON );
-		else
-			SetPIN( buzzer, OFF );
+	case ALLoUTSON:
+		Outputs = 0xFFFFFFFF;
 		break;
 	default:
 		break;
-
 	}
-
-}
-
-void HeatOn( void )
-{
-	HEAToN;
-}
-void HeatOff( void )
-{
-	HEAToFF;
-}
-void FanOn( void )
-{
-	FANoN;
-}
-void FanOff( void )
-{
-	FANoFF;
-}
-void BuzzerOn( void )
-{
-	BUZZERoN;
-}
-void BuzzerOff( void )
-{
-	BUZZERoFF;
-}
-void LedCicloOn( void )
-{
-	LED3oN;
-}
-void LedCicloOff( void )
-{
-	LED3oFF;
 }
 
 
+uint8_t GetFvolume( void ){
+	return fTimeoutVolume;
+}
+void SetFvolume( uint8_t value ){
+	fTimeoutVolume = value;
+}
+uint8_t GetFdrive( void ){
+	return fTimeoutDrive;
+}
+void SetFdrive( uint8_t value ){
+	fTimeoutDrive = value;
+}
+
+void timeoutVolume(void){
+	fTimeoutVolume = 1;
+}
+
+void timeoutDrive(void){
+	fTimeoutDrive = 1;
+}
+
+void Control_DigPot_Volume(uint8_t value){
+	switch( value ){
+	case 0:
+		SetPIN( VOLUME_CONTROL_1A  , ON );
+		SetPIN( VOLUME_CONTROL_1B  , OFF );
+		SetPIN( VOLUME_CONTROL_1C  , OFF );
+		SetPIN( VOLUME_CONTROL_1D  , OFF );
+		SetPIN( VOLUME_CONTROL_2A  , OFF );
+		SetPIN( VOLUME_CONTROL_2B  , OFF );
+		SetPIN( VOLUME_CONTROL_2C  , OFF );
+		SetPIN( VOLUME_CONTROL_2D  , OFF );
+
+		break;
+	case 1:
+		SetPIN( VOLUME_CONTROL_1B  , ON );
+		SetPIN( VOLUME_CONTROL_1A  , OFF );
+		SetPIN( VOLUME_CONTROL_1C  , OFF );
+		SetPIN( VOLUME_CONTROL_1D  , OFF );
+		SetPIN( VOLUME_CONTROL_2A  , OFF );
+		SetPIN( VOLUME_CONTROL_2B  , OFF );
+		SetPIN( VOLUME_CONTROL_2C  , OFF );
+		SetPIN( VOLUME_CONTROL_2D  , OFF );
+
+		break;
+	case 2:
+		SetPIN( VOLUME_CONTROL_1C  , ON );
+		SetPIN( VOLUME_CONTROL_1A  , OFF );
+		SetPIN( VOLUME_CONTROL_1B  , OFF );
+		SetPIN( VOLUME_CONTROL_1D  , OFF );
+		SetPIN( VOLUME_CONTROL_2A  , OFF );
+		SetPIN( VOLUME_CONTROL_2B  , OFF );
+		SetPIN( VOLUME_CONTROL_2C  , OFF );
+		SetPIN( VOLUME_CONTROL_2D  , OFF );
+
+		break;
+	case 3:
+		SetPIN( VOLUME_CONTROL_1D  , ON );
+		SetPIN( VOLUME_CONTROL_1A  , OFF );
+		SetPIN( VOLUME_CONTROL_1B  , OFF );
+		SetPIN( VOLUME_CONTROL_1C  , OFF );
+		SetPIN( VOLUME_CONTROL_2A  , OFF );
+		SetPIN( VOLUME_CONTROL_2B  , OFF );
+		SetPIN( VOLUME_CONTROL_2C  , OFF );
+		SetPIN( VOLUME_CONTROL_2D  , OFF );
+
+		break;
+	case 4:
+		SetPIN( VOLUME_CONTROL_2A  , ON );
+		SetPIN( VOLUME_CONTROL_1A  , OFF );
+		SetPIN( VOLUME_CONTROL_1B  , OFF );
+		SetPIN( VOLUME_CONTROL_1C  , OFF );
+		SetPIN( VOLUME_CONTROL_1D  , OFF );
+		SetPIN( VOLUME_CONTROL_2B  , OFF );
+		SetPIN( VOLUME_CONTROL_2C  , OFF );
+		SetPIN( VOLUME_CONTROL_2D  , OFF );
+
+		break;
+	case 5:
+		SetPIN( VOLUME_CONTROL_2B  , ON );
+		SetPIN( VOLUME_CONTROL_1A  , OFF );
+		SetPIN( VOLUME_CONTROL_1B  , OFF );
+		SetPIN( VOLUME_CONTROL_1C  , OFF );
+		SetPIN( VOLUME_CONTROL_1D  , OFF );
+		SetPIN( VOLUME_CONTROL_2A  , OFF );
+		SetPIN( VOLUME_CONTROL_2C  , OFF );
+		SetPIN( VOLUME_CONTROL_2D  , OFF );
+
+		break;
+	case 6:
+		SetPIN( VOLUME_CONTROL_2C  , ON );
+		SetPIN( VOLUME_CONTROL_1A  , OFF );
+		SetPIN( VOLUME_CONTROL_1B  , OFF );
+		SetPIN( VOLUME_CONTROL_1C  , OFF );
+		SetPIN( VOLUME_CONTROL_1D  , OFF );
+		SetPIN( VOLUME_CONTROL_2A  , OFF );
+		SetPIN( VOLUME_CONTROL_2B  , OFF );
+		SetPIN( VOLUME_CONTROL_2D  , OFF );
+
+		break;
+	case 7:
+		SetPIN( VOLUME_CONTROL_2D  , ON );
+		SetPIN( VOLUME_CONTROL_1A  , OFF );
+		SetPIN( VOLUME_CONTROL_1B  , OFF );
+		SetPIN( VOLUME_CONTROL_1C  , OFF );
+		SetPIN( VOLUME_CONTROL_1D  , OFF );
+		SetPIN( VOLUME_CONTROL_2A  , OFF );
+		SetPIN( VOLUME_CONTROL_2B  , OFF );
+		SetPIN( VOLUME_CONTROL_2C  , OFF );
+
+		break;
+	default:
+		SetPIN( VOLUME_CONTROL_1A  , OFF );
+		SetPIN( VOLUME_CONTROL_1B  , OFF );
+		SetPIN( VOLUME_CONTROL_1C  , OFF );
+		SetPIN( VOLUME_CONTROL_1D  , OFF );
+		SetPIN( VOLUME_CONTROL_2A  , OFF );
+		SetPIN( VOLUME_CONTROL_2B  , OFF );
+		SetPIN( VOLUME_CONTROL_2C  , OFF );
+		SetPIN( VOLUME_CONTROL_2D  , OFF );
+		break;
+	}
+}
+void Control_DigPot_Drive(uint8_t value){
+	switch( value ){
+	case 0:
+		SetPIN( DRIVE_CONTROL_D  , OFF );
+		SetPIN( DRIVE_CONTROL_B  , OFF );
+		SetPIN( DRIVE_CONTROL_C  , OFF );
+		SetPIN( DRIVE_CONTROL_A  , ON );
+		break;
+	case 1:
+		SetPIN( DRIVE_CONTROL_A  , OFF );
+		SetPIN( DRIVE_CONTROL_D  , OFF );
+		SetPIN( DRIVE_CONTROL_C  , OFF );
+		SetPIN( DRIVE_CONTROL_B  , ON );
+		break;
+	case 2:
+		SetPIN( DRIVE_CONTROL_A  , OFF );
+		SetPIN( DRIVE_CONTROL_B  , OFF );
+		SetPIN( DRIVE_CONTROL_D  , OFF );
+		SetPIN( DRIVE_CONTROL_C  , ON );
+		break;
+	case 3:
+		SetPIN( DRIVE_CONTROL_A  , OFF );
+		SetPIN( DRIVE_CONTROL_B  , OFF );
+		SetPIN( DRIVE_CONTROL_C  , OFF );
+		SetPIN( DRIVE_CONTROL_D  , ON );
+		break;
+	default:
+		SetPIN( DRIVE_CONTROL_D  , OFF );
+		SetPIN( DRIVE_CONTROL_B  , OFF );
+		SetPIN( DRIVE_CONTROL_C  , OFF );
+		SetPIN( DRIVE_CONTROL_A  , OFF );
+		break;
+	}
+}

@@ -6,7 +6,7 @@
  */
 
 
-#include "uart.h"
+#include <uart.h>
 
 UART0_Struct UART0_datos;
 UART0_Struct UART1_datos;
@@ -149,13 +149,14 @@ uint8_t InicializarUart1( uint32_t baudRate )
 	SIM_SCGC |= SIM_SCGC_UART1_MASK;
 
 	/* SIM_PINSEL: UART0PS=1 RX0 y TX0 por PTA2 y PTA3*/
-	//SIM_PINSEL |= SIM_PINSEL_UART0PS_MASK;
+	SIM_PINSEL |= SIM_PINSEL_UART0PS_MASK;
 	//UART0_BDH = UART_BDH_SBR(baudRate);	//No le gusta con esto
 	//UART0_BDL = UART_BDL_SBR(baudRate);	//No le gusta con esto
 	/* UART0_BDH: LBKDIE=0,RXEDGIE=0,SBNS=0,SBR=0 */
 	UART1_BDH = UART_BDH_SBR(0x00);		//así sí
 	/* UART0_BDL: SBR=0x68 */
 	UART1_BDL = UART_BDL_SBR(0x68);
+	//UART1_BDL = UART_BDL_SBR(9);	//115200
 	UART1_C1  = 0;	//8N1
 	//UART0_C2  = UART_C2_TIE_MASK | UART_C2_RIE_MASK | UART_C2_TE_MASK | UART_C2_RE_MASK;	//Funciona
 	UART1_C2  = UART_C2_TCIE_MASK | UART_C2_RIE_MASK | UART_C2_TE_MASK | UART_C2_RE_MASK;	//Con tx vacio

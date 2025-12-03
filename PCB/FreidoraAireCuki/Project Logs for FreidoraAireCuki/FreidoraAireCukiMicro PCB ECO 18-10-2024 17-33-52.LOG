@@ -1,9 +1,0 @@
-Added Component: Designator=C10(C-0805_N)
-Added Component: Designator=R54(R-0805_N)
-Added Pin To Net: NetName=AGND Pin=C10-1
-Added Pin To Net: NetName=NTC_10K Pin=C10-2
-Added Pin To Net: NetName=NTC_10K Pin=R54-1
-Added Pin To Net: NetName=VCC Pin=R54-2
-Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component C9 100nF
-Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component C10 100nF
-Added Member To Class: ClassName=FreidoraAireCukiMicro Member=Component R54 10K

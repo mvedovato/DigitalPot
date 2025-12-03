@@ -36,41 +36,23 @@
 #define LIEBRE		2
 #define FIN			3
 
-#define DISABLE								255
-#define	DEFAULTsETpOINT						180
-#define	MINIMOsETPOINT						60
-#define	MAXIMOsETPOINT						245
-#define	DEFAULTmINUTOScOCCION				20
-#define	MINIMOmINUTOScOCCION				1
-#define	MAXIMOmINUTOScOCCION				60
-#define	DEFAULTsEGUNDOScICLObUZZER			2
-#define	BANDA								4
-#define	CANTIDADmODOS						5
-#define	CARNE								0
-#define	PAPAfRITA							1
-#define	POIO								2
-#define	PESCAU								3
-#define	MUFFIN								4
-
-
-#define	TEMPERATURAfREIR					0
-#define	SETPOINT							1
-#define	MINUTOScCOCCION						2
-#define	ELEGIRmODO							3
-#define MODOeMERGENCIA						4
-#define MODOaRRANQUE						4
+#define DISABLE		255
 
 /***********************************************************************************************************************************
  *** TIPO DE DATOS GLOBALES
  **********************************************************************************************************************************/
-typedef struct {
-	uint32_t minutos;
-	uint8_t temperatura;
-} parametrosCuki;
+
 /***********************************************************************************************************************************
  *** VARIABLES GLOBALES
  **********************************************************************************************************************************/
-
+extern uint8_t EstadoAutomatico;		//!< Variable de estado de la maquina de estados del ciclo auomatico
+extern uint8_t fLIEBRE_MANUAL;
+extern uint8_t fTORTUGA_MANUAL;
+extern uint8_t fPARADA_MANUAL;
+extern uint8_t fPARADA_AUTOMATICO;
+extern uint8_t fReja ;
+extern uint32_t ComienzoCalibracion , FinCalibracion;
+extern uint8_t fLLenar;
 
 /***********************************************************************************************************************************
  *** PROTOTIPOS DE FUNCIONES GLOBALES
@@ -79,20 +61,5 @@ void Control ( void );
 void Automatico ( void );
 void ParadaManual ( void );
 void ParadaAutomatico ( void );
-void cicloCoccion( void );
-uint8_t BarraProgreso(uint8_t, uint32_t );
-void LedsBarraProgreso(uint8_t );
-void IntervaloProgreso( void );
-void parpadeo( void );
-void estadoCuki( uint8_t );
-void ApagarFan( void );
-void LedHeat( uint8_t );
-uint8_t CicloBuzzer( uint8_t, uint32_t, uint8_t );
-void TimeoutBuzzer( void );
-void OneShot(void );
-uint8_t GetFparpadeo( void );
-void imprimirParametros( void );
-void elegirModo( void );
-void imprimirCuki( uint8_t );
 
 #endif /* SOURCES_APLICACION_AP_CONTROL_H_ */

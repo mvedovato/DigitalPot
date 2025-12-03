@@ -9,16 +9,15 @@
 #define SOURCES_DRIVERS_MKE_H_DR_UART_H_
 
 #include "MKE02Z2.h"
-
 #include <stdio.h>
 
-#define 	UART0bAUDrATE	9600
-#define		UART0_TAMANIO_COLA_RX					20
-#define		UART0_TAMANIO_COLA_TX					20
+#define 	UART0bAUDrATE							9600
+#define		UART0_TAMANIO_COLA_RX					41
+#define		UART0_TAMANIO_COLA_TX					41
 
-#define 	UART1bAUDrATE	9600
-#define		UART1_TAMANIO_COLA_RX					20
-#define		UART1_TAMANIO_COLA_TX					100
+#define 	UART1bAUDrATE							9600
+#define		UART1_TAMANIO_COLA_RX					41
+#define		UART1_TAMANIO_COLA_TX					41
 
 
 typedef struct

@@ -1,9 +1,9 @@
 /*******************************************************************************************************************************//**
  *
- * @file		init.h
+ * @file		TK.h
  * @brief		DESCRIPCION ------------------------
- * @date		30/10/2024
- * @author		Marianito
+ * @date		19/6/2016
+ * @author		Ing. Marcelo Trujillo
  *
  **********************************************************************************************************************************/
 
@@ -24,62 +24,117 @@
  ***********************************************************************************/
 #define		MAX_SALIDAS		32
 
-//Salidas potencia
-#define    	fan	        	PORTA,6
-#define    	heat	        PORTA,7
+//Teclado fijo 2 teclas
 
-//Salidas generales
-#define    	buzzer	        PORTE,4
+#define		tecla0			PORTB,2
+#define		tecla1			PORTB,3
 
-//Leds 7 Segmentos
-#define 	seg_a			PORTF,5
-#define    	seg_b	        PORTD,3
-#define    	seg_c	        PORTE,3
-#define 	seg_d			PORTB,5
-#define 	seg_e			PORTE,5
-#define 	seg_f			PORTD,7
-#define 	seg_g			PORTG,1
-#define 	seg_dp			PORTE,6
+/*
+ Volume n = 6
 
-//Cátodos 7 Segmentos
-#define 	digito0			PORTF,4
-#define 	digito1			PORTD,4
-#define    	digito2	        PORTD,2
+	 |
+	---
+	| |		4K7
+	---
+	 |
+	 .
+	 |
+	---
+	| |		10K
+	---
+	 |
+	 .
+	 |
+	---
+	| |		10K
+	---
+	 |
+	 .
+	 |
+	---
+	| |		10K
+	---
+	 |
+	 .
+	 |
+	---
+	| |		18K
+	---
+	 |
+	 .
+	 |
+	---
+	| |		4K7
+	---
+	 |
+	 .
+	 |
+	---
+	| |		560
+	---
+	 |
+	 .
+	 |
+	---
+	| |		1K
+	---
+	 |
+ */
 
-//Leds
-#define    	led1	        PORTB,1
-#define		led2			PORTB,2
-#define		led3			PORTE,0
-#define		led4			PORTC,5
-#define    	led5	        PORTB,0
-#define    	led6	        PORTF,2
-#define 	led7			PORTF,1
-#define 	led8			PORTF,0
-#define    	led9	        PORTF,3
-
-//Entradas teclado
-#define 	tec_tiempo		PORTE,7
-#define 	tec_modo		PORTH,6
-#define 	tec_onOff		PORTH,2
-#define 	tec_bajar		PORTH,1
-#define 	tec_subir		PORTH,0
+//Salidas control DigPot Volume
+#define 	VOLUME_CONTROL_1A		PORTA,1		//OK
+#define 	VOLUME_CONTROL_1B		PORTA,0		//OK
+#define 	VOLUME_CONTROL_1C		PORTE,3		//OK
+#define 	VOLUME_CONTROL_1D		PORTE,2		//OK
+#define 	VOLUME_CONTROL_2A		PORTG,3		//OK
+#define 	VOLUME_CONTROL_2B		PORTG,2		//OK
+#define 	VOLUME_CONTROL_2C		PORTG,1		//OK
+#define 	VOLUME_CONTROL_2D		PORTG,0		//OK
 
 
+//Salidas control DigPot Drive
+#define 	DRIVE_CONTROL_A		PORTD,4		//OK
+#define 	DRIVE_CONTROL_B		PORTF,0		//OK
+#define 	DRIVE_CONTROL_C		PORTF,1		//OK
+#define 	DRIVE_CONTROL_D		PORTE,4		//OK
 
 
-#define		ret3			PORTB,3
+#define    	IN0	        	PORTD,2
+#define    	IN1	        	PORTD,3
+
+
+
 #define 	IN2				PORTH,7		//OK
+#define 	IN3				PORTH,6		//OK
+#define 	IN4				PORTE,7		//OK
+#define 	IN5				PORTH,2		//OK
+
+
 #define 	OUT0			PORTD,1		//OK
 #define 	OUT1			PORTD,0		//OK
+#define 	OUT6			PORTH,1		//OK
+#define 	OUT7			PORTH,0		//OK
+
+#define 	OUT8			PORTE,6		//OK
+#define 	OUT9			PORTE,5		//OK
+#define 	OUT10			PORTB,5		//OK
 #define 	OUT11			PORTB,4		//OK
 #define 	OUT12			PORTC,3		//OK
 #define 	OUT13			PORTC,2		//OK
+
+#define 	OUT14			PORTD,7		//OK
 #define 	OUT15			PORTD,6		//OK
 #define 	OUT16			PORTD,5		//OK
 #define 	OUT17			PORTC,1		//OK
 #define 	OUT18			PORTC,0		//OK
 #define 	OUT19			PORTF,7		//OK
 #define 	OUT20			PORTF,6		//OK	//ADC0.14
+#define 	OUT21			PORTF,5		//OK	//ADC0.13
+
+#define 	OUT22			PORTE,4		//OK
+#define 	OUT23			PORTF,1		//OK
+#define 	OUT24			PORTF,0		//OK
+#define 	OUT25			PORTD,4		//OK
 #define 	OUT26			PORTD,3		//OK
 #define 	OUT27			PORTD,2		//OK
 #define 	OUT28			PORTA,1		//OK
@@ -92,17 +147,18 @@
 /***********************************************************************************
  *** ENTRADAS ANALOGICAS
  ***********************************************************************************/
-//#define	temperatura		//PORTA,1
-//#define	NTC_10K			//PORTA,0
-
 #define 	MUESTRAS		16
 
 #define 	ADC_CHANNEL_0	0
 #define 	ADC_CHANNEL_1	1
 #define 	ADC_CHANNEL_11	11
-#define 	ADC_CHANNEL_12	12
-#define 	ADC_CHANNEL_13	13
-#define 	ADC_CHANNEL_14	14
+#define 	ADC_CHANNEL_12	12	//PTF4 PIN 4 BR2
+#define 	ADC_CHANNEL_13	13	//PTF5 PIN 3 BR2
+#define 	ADC_CHANNEL_14	14	//PTF6 PIN 2 BR2 (seguido de AGND PIN1 )
+
+#define		ChCORRIENTE		ADC_CHANNEL_12
+#define		ChVPANEL		ADC_CHANNEL_13
+#define		ChVBAT			ADC_CHANNEL_14
 
 /***********************************************************************************
  *** DISPLAY
@@ -146,24 +202,23 @@
 /***********************************************************************************
  *** CONFIGURACION DE APLICACION
  ***********************************************************************************/
+#define    	dip0	   		PORTE,6
+#define    	dip1	   		PORTH,0
 
 /***********************************************************************************
  *** DEFINES GLOBALES DE PROPOSITO GENERAL
  ***********************************************************************************/
 #define		OFF				0
 #define		ON				1
-#define		OFFcUKI			1
-#define		ONcUKI			0
 #define		PARPADEO		2
 #define		abs(x)			( x > 0 ) ? (x) : (-(x))
 
-#define		ARRANQUE		0
-#define		IDLE			1
-#define		COCCION			2
-#define		PAUSA			3
-#define		COCINADO		4
-#define		ELECCIONmODO	5
-#define		EMERGENCIA		6
+
+
+/***********************************************************************************************************************************
+ *** VARIABLES GLOBALES
+ **********************************************************************************************************************************/
+extern uint8_t DipSwitch;
 
 /***********************************************************************************************************************************
  *** PROTOTIPOS DE FUNCIONES GLOBALES

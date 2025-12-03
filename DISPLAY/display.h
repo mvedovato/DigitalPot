@@ -1,9 +1,9 @@
 /*******************************************************************************************************************************//**
  *
- * @file		display.h
+ * @file		DR_Display7s.h
  * @brief		DESCRIPCION ------------------------
- * @date		31-10-2024
- * @author		Marianito
+ * @date		17/6/2016
+ * @author		Ing. Marcelo Trujillo
  *
  **********************************************************************************************************************************/
 
@@ -24,17 +24,16 @@
  *** DEFINES GLOBALES
  **********************************************************************************************************************************/
 // Codigo 7 Segmentos
-#define	    CERO				((uint16_t)(0b00111111))
-#define	    UNO 				((uint16_t)(0b00000110))
-#define     DOS 				((uint16_t)(0b01011011))
-#define     TRES				((uint16_t)(0b01001111))
-#define	    CUATRO				((uint16_t)(0b01100110))
-#define	    CINCO				((uint16_t)(0b01101101))
-#define	    SEIS				((uint16_t)(0b01111100))
-#define	    SIETE				((uint16_t)(0b00000111))
-#define	    OCHO				((uint16_t)(0b01111111))
-#define	   	NUEVE				((uint16_t)(0b01100111))
-#define		DP					((uint16_t)(0b10000000))
+#define	    CERO				(~(uint16_t)(0b00111111))
+#define	    UNO 				(~(uint16_t)(0b00000110))
+#define     DOS 				(~(uint16_t)(0b01011011))
+#define     TRES				(~(uint16_t)(0b01001111))
+#define	    CUATRO				(~(uint16_t)(0b01100110))
+#define	    CINCO				(~(uint16_t)(0b01101101))
+#define	    SEIS				(~(uint16_t)(0b01111100))
+#define	    SIETE				(~(uint16_t)(0b00000111))
+#define	    OCHO				(~(uint16_t)(0b01111111))
+#define	   	NUEVE				(~(uint16_t)(0b01100111))
 
 /***********************************************************************************************************************************
  *** MACROS GLOBALES
@@ -44,11 +43,11 @@
  *** TIPO DE DATOS GLOBALES
  **********************************************************************************************************************************/
 extern uint16_t MSG_DSP[  ];		//!< 	Digitos del display
-extern uint16_t MSG_AUX[  ];		//!< 	Digitos del display auxiliar
-extern uint16_t MSG_POS[  ];		//!< 	Numero de digito donde comienza cada display
-extern uint16_t MSG_DIG[  ];		//!<	Cantidad de digitos d cada display
-extern uint16_t MSG_ACCION[  ];		//!< 	Accion que tiene que desarrollar el display: Apagado, ON, OFF
-extern uint16_t MSG_USE[ ];			//!< 	Habilita o no El uso del display (Actua sobre RefrescoDeDisplay())
+extern uint16_t MSG_AUX[  ];				//!< 	Digitos del display auxiliar
+extern uint16_t MSG_POS[  ];				//!< 	Numero de digito donde comienza cada display
+extern uint16_t MSG_DIG[  ];				//!<	Cantifad de digitos d cada display
+extern uint16_t MSG_ACCION[  ];				//!< 	Accion que tiene que desarrollar el display: Apagado, ON, OFF
+extern uint16_t MSG_USE[ ];					//!< 	Habilita o no El uso del display (Actua sobre RefrescoDeDisplay())
 
 /***********************************************************************************************************************************
  *** VARIABLES GLOBALES

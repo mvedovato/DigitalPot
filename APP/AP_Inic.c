@@ -22,7 +22,6 @@
 #include "DR_SystemInit.h"
 #include "DR_LCD16x2.h"
 #include "init.h"
-#include "timer.h"
 
 
 /******************************************************************************
@@ -59,15 +58,31 @@ void Inicializacion( void )
 
 	InicializarSistema( );
 	InicializarNMI( );
-	InicializarADC( );
 	InicializarBoard( );
 	//InicializarEEPROM( );
 	InicializarSystick( 1000 );
+	//InicializarLeds( );
 	//InicializarUart0( UART0bAUDrATE );
 	InicializarUart1( UART1bAUDrATE );
+	Inicializar_LCD( );
+	//InicializarLCDGrafico( );
+	//InicializarADC( );
 
-	TimerStart(E_PARPADEO, 1, parpadeo, SEG);
-	TimerStart(E_ARRANQUE , T_ARRANQUE , EV_Arranque , SEG );
+	/*
+	echk = LoadProgramas( );
 
+	chk = Checksum( );
+
+	if ( echk != chk )
+		SaveValoresFabrica( ) ; //!< Salva valores de proceso de fabrica + claves de fabrica
+
+	Arranque( );
+	UPrg[ 0 ] = 1;	//!< Tiempo de tortuga
+	UPrg[ 1 ] = 1 ; //!< Tiempo de liebre
+
+	if ( DipSwitch == 1 )
+		PuestaEnMarcha( );
+
+	*/
 
 }
