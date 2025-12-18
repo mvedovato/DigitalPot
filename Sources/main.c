@@ -11,14 +11,19 @@
 
 
 uint8_t estado = 0;
-
+int16_t volumen = 0;
+int16_t tono = 0;
+int16_t distorsion = 0;
 
 int main( void )
 {
 	uint8_t c = NO_KEY, stepsVolume = 0, stepsDrive = 0;
+	int32_t caracter;
 
 	Inicializacion( );
 	Display_LCD((unsigned char *)"Digital Pot", 0, 0);
+	Control_DigPot_Volume(3);
+    Control_DigPot_Drive(2);
 
 	while ( 1 )
 	{
@@ -65,6 +70,23 @@ int main( void )
     		break;
     	}
 
+     	caracter = UART1_PopRx();
+     	if( caracter > 0 ){
+     		volumeRx((uint8_t)caracter);
+     		if( volumen > 0 ){
+     			volumen = 0;
+     		}
+
+     		driveRx((uint8_t)caracter);
+     		if( distorsion > 0 ){
+     			distorsion = 0;
+     		}
+
+     		toneRx((uint8_t)caracter);
+     		if( tono > 0 ){
+     			tono = 0;
+     		}
+     	}
 
 	}
 }

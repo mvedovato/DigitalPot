@@ -12,12 +12,12 @@
 #include <stdio.h>
 
 #define 	UART0bAUDrATE							9600
-#define		UART0_TAMANIO_COLA_RX					41
-#define		UART0_TAMANIO_COLA_TX					41
+#define		UART0_TAMANIO_COLA_RX					10
+#define		UART0_TAMANIO_COLA_TX					10
 
 #define 	UART1bAUDrATE							9600
-#define		UART1_TAMANIO_COLA_RX					41
-#define		UART1_TAMANIO_COLA_TX					41
+#define		UART1_TAMANIO_COLA_RX					100
+#define		UART1_TAMANIO_COLA_TX					100
 
 
 typedef struct
@@ -56,5 +56,8 @@ void UART1_PushTx(uint8_t );
 int32_t UART1_PopTx( void );
 void UART1_PushRx(uint8_t );
 int32_t UART1_PopRx( void );
+int32_t volumeRx( uint8_t );
+int32_t driveRx( uint8_t );
+int32_t toneRx( uint8_t );
 
 #endif /* SOURCES_DRIVERS_MKE_H_DR_UART_H_ */

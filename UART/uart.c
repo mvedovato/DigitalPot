@@ -11,6 +11,9 @@
 UART0_Struct UART0_datos;
 UART0_Struct UART1_datos;
 
+extern int16_t volumen;
+extern int16_t distorsion;
+extern int16_t tono;
 /*
  * UARTBaudRate = BUSclk / 16*BR
  * BR = BUSclk / 16*UARTBaudRate
@@ -265,4 +268,253 @@ int32_t UART1_PopRx( void )
 		UART1_datos.RX.Indice_out %= UART1_TAMANIO_COLA_RX;
 	}
 	return dato;
+}
+
+int32_t volumeRx( uint8_t dato ){
+	static uint8_t estado = 0, chk = 0, volume = 0;
+	int32_t retorno = -1;
+
+	switch( estado ){
+	case 0:
+		if( dato == '>'){
+			chk = dato;
+			estado = 1;
+		}
+		break;
+	case 1:
+		if( dato == 'V' ){
+			chk ^= dato;
+			estado = 2;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+		}
+		break;
+	case 2:
+		if( dato == ',' ){
+			chk ^= dato;
+			estado = 3;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+		}
+		break;
+	case 3:
+		if( dato == ',' ){
+			chk ^= dato;
+			estado = 4;
+		}
+		else{
+			if( dato >= '0' && dato <= '9' ){
+				volume *= 10;
+				volume += (dato - '0');
+				chk ^= dato;
+			}
+			else{
+				estado = 0;
+				chk = 0;
+				volume = 0;
+			}
+
+		}
+		break;
+	case 4:	//Chequeo de chk
+		if( chk == dato ){
+			estado = 5;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+			volume = 0;
+		}
+		break;
+	case 5:
+		if( dato == '<' ){
+			estado = 0;
+			retorno = volume;
+			volumen = volume;
+			chk = 0;
+			volume = 0;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+			volume = 0;
+		}
+		break;
+
+	default:
+		estado = 0;
+		break;
+	}
+
+	return retorno;
+}
+
+int32_t driveRx( uint8_t dato ){
+	static uint8_t estado = 0, chk = 0, drive = 0;
+	int32_t retorno = -1;
+
+	switch( estado ){
+	case 0:
+		if( dato == '>'){
+			chk = dato;
+			estado = 1;
+		}
+		break;
+	case 1:
+		if( dato == 'D' ){
+			chk ^= dato;
+			estado = 2;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+		}
+		break;
+	case 2:
+		if( dato == ',' ){
+			chk ^= dato;
+			estado = 3;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+		}
+		break;
+	case 3:
+		if( dato == ',' ){
+			chk ^= dato;
+			estado = 4;
+		}
+		else{
+			if( dato >= '0' && dato <= '9' ){
+				drive *= 10;
+				drive += (dato - '0');
+				chk ^= dato;
+			}
+			else{
+				estado = 0;
+				chk = 0;
+				drive = 0;
+			}
+
+		}
+		break;
+	case 4:	//Chequeo de chk
+		if( chk == dato ){
+			estado = 5;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+			drive = 0;
+		}
+		break;
+	case 5:
+		if( dato == '<' ){
+			estado = 0;
+			retorno = drive;
+			distorsion = drive;
+			chk = 0;
+			drive = 0;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+			drive = 0;
+		}
+		break;
+
+	default:
+		estado = 0;
+		break;
+	}
+
+	return retorno;
+}
+
+int32_t toneRx( uint8_t dato ){
+	static uint8_t estado = 0, chk = 0, tone = 0;
+	int32_t retorno = -1;
+
+	switch( estado ){
+	case 0:
+		if( dato == '>'){
+			chk = dato;
+			estado = 1;
+		}
+		break;
+	case 1:
+		if( dato == 'T' ){
+			chk ^= dato;
+			estado = 2;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+		}
+		break;
+	case 2:
+		if( dato == ',' ){
+			chk ^= dato;
+			estado = 3;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+		}
+		break;
+	case 3:
+		if( dato == ',' ){
+			chk ^= dato;
+			estado = 4;
+		}
+		else{
+			if( dato >= '0' && dato <= '9' ){
+				tone *= 10;
+				tone += (dato - '0');
+				chk ^= dato;
+			}
+			else{
+				estado = 0;
+				chk = 0;
+				tone = 0;
+			}
+
+		}
+		break;
+	case 4:	//Chequeo de chk
+		if( chk == dato ){
+			estado = 5;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+			tone = 0;
+		}
+		break;
+	case 5:
+		if( dato == '<' ){
+			estado = 0;
+			retorno = tone;
+			tono = tone;
+			chk = 0;
+			tone = 0;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+			tone = 0;
+		}
+		break;
+
+	default:
+		estado = 0;
+		break;
+	}
+
+	return retorno;
 }

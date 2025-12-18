@@ -364,7 +364,6 @@ void timeoutDrive(void){
 void Control_DigPot_Volume(uint8_t value){
 	switch( value ){
 	case 0:
-		SetPIN( VOLUME_CONTROL_1A  , ON );
 		SetPIN( VOLUME_CONTROL_1B  , OFF );
 		SetPIN( VOLUME_CONTROL_1C  , OFF );
 		SetPIN( VOLUME_CONTROL_1D  , OFF );
@@ -372,10 +371,9 @@ void Control_DigPot_Volume(uint8_t value){
 		SetPIN( VOLUME_CONTROL_2B  , OFF );
 		SetPIN( VOLUME_CONTROL_2C  , OFF );
 		SetPIN( VOLUME_CONTROL_2D  , OFF );
-
+		SetPIN( VOLUME_CONTROL_1A  , ON );
 		break;
 	case 1:
-		SetPIN( VOLUME_CONTROL_1B  , ON );
 		SetPIN( VOLUME_CONTROL_1A  , OFF );
 		SetPIN( VOLUME_CONTROL_1C  , OFF );
 		SetPIN( VOLUME_CONTROL_1D  , OFF );
@@ -383,10 +381,9 @@ void Control_DigPot_Volume(uint8_t value){
 		SetPIN( VOLUME_CONTROL_2B  , OFF );
 		SetPIN( VOLUME_CONTROL_2C  , OFF );
 		SetPIN( VOLUME_CONTROL_2D  , OFF );
-
+		SetPIN( VOLUME_CONTROL_1B  , ON );
 		break;
 	case 2:
-		SetPIN( VOLUME_CONTROL_1C  , ON );
 		SetPIN( VOLUME_CONTROL_1A  , OFF );
 		SetPIN( VOLUME_CONTROL_1B  , OFF );
 		SetPIN( VOLUME_CONTROL_1D  , OFF );
@@ -394,10 +391,9 @@ void Control_DigPot_Volume(uint8_t value){
 		SetPIN( VOLUME_CONTROL_2B  , OFF );
 		SetPIN( VOLUME_CONTROL_2C  , OFF );
 		SetPIN( VOLUME_CONTROL_2D  , OFF );
-
+		SetPIN( VOLUME_CONTROL_1C  , ON );
 		break;
 	case 3:
-		SetPIN( VOLUME_CONTROL_1D  , ON );
 		SetPIN( VOLUME_CONTROL_1A  , OFF );
 		SetPIN( VOLUME_CONTROL_1B  , OFF );
 		SetPIN( VOLUME_CONTROL_1C  , OFF );
@@ -405,10 +401,9 @@ void Control_DigPot_Volume(uint8_t value){
 		SetPIN( VOLUME_CONTROL_2B  , OFF );
 		SetPIN( VOLUME_CONTROL_2C  , OFF );
 		SetPIN( VOLUME_CONTROL_2D  , OFF );
-
+		SetPIN( VOLUME_CONTROL_1D  , ON );
 		break;
 	case 4:
-		SetPIN( VOLUME_CONTROL_2A  , ON );
 		SetPIN( VOLUME_CONTROL_1A  , OFF );
 		SetPIN( VOLUME_CONTROL_1B  , OFF );
 		SetPIN( VOLUME_CONTROL_1C  , OFF );
@@ -416,10 +411,9 @@ void Control_DigPot_Volume(uint8_t value){
 		SetPIN( VOLUME_CONTROL_2B  , OFF );
 		SetPIN( VOLUME_CONTROL_2C  , OFF );
 		SetPIN( VOLUME_CONTROL_2D  , OFF );
-
+		SetPIN( VOLUME_CONTROL_2A  , ON );
 		break;
 	case 5:
-		SetPIN( VOLUME_CONTROL_2B  , ON );
 		SetPIN( VOLUME_CONTROL_1A  , OFF );
 		SetPIN( VOLUME_CONTROL_1B  , OFF );
 		SetPIN( VOLUME_CONTROL_1C  , OFF );
@@ -427,10 +421,9 @@ void Control_DigPot_Volume(uint8_t value){
 		SetPIN( VOLUME_CONTROL_2A  , OFF );
 		SetPIN( VOLUME_CONTROL_2C  , OFF );
 		SetPIN( VOLUME_CONTROL_2D  , OFF );
-
+		SetPIN( VOLUME_CONTROL_2B  , ON );
 		break;
 	case 6:
-		SetPIN( VOLUME_CONTROL_2C  , ON );
 		SetPIN( VOLUME_CONTROL_1A  , OFF );
 		SetPIN( VOLUME_CONTROL_1B  , OFF );
 		SetPIN( VOLUME_CONTROL_1C  , OFF );
@@ -438,10 +431,9 @@ void Control_DigPot_Volume(uint8_t value){
 		SetPIN( VOLUME_CONTROL_2A  , OFF );
 		SetPIN( VOLUME_CONTROL_2B  , OFF );
 		SetPIN( VOLUME_CONTROL_2D  , OFF );
-
+		SetPIN( VOLUME_CONTROL_2C  , ON );
 		break;
 	case 7:
-		SetPIN( VOLUME_CONTROL_2D  , ON );
 		SetPIN( VOLUME_CONTROL_1A  , OFF );
 		SetPIN( VOLUME_CONTROL_1B  , OFF );
 		SetPIN( VOLUME_CONTROL_1C  , OFF );
@@ -449,7 +441,7 @@ void Control_DigPot_Volume(uint8_t value){
 		SetPIN( VOLUME_CONTROL_2A  , OFF );
 		SetPIN( VOLUME_CONTROL_2B  , OFF );
 		SetPIN( VOLUME_CONTROL_2C  , OFF );
-
+		SetPIN( VOLUME_CONTROL_2D  , ON );
 		break;
 	default:
 		SetPIN( VOLUME_CONTROL_1A  , OFF );

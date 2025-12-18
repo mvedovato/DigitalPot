@@ -19,6 +19,7 @@
 #include <PR_Strings.h>
 #include "teclado.h"
 #include "io.h"
+#include "uart.h"
 #include "DR_LCD16x2.h"
 
 #endif /* SOURCES_DIGITALPOT_H_ */
