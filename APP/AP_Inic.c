@@ -64,7 +64,7 @@ void Inicializacion( void )
 	//InicializarLeds( );
 	//InicializarUart0( UART0bAUDrATE );
 	InicializarUart1( UART1bAUDrATE );
-	Inicializar_LCD( );
+	//Inicializar_LCD( );
 	//InicializarLCDGrafico( );
 	//InicializarADC( );
 

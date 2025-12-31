@@ -147,7 +147,6 @@ extern uint32_t MascaraOutputs;
 void Debounce ( void );
 uint16_t get_Entradas( void );
 void RefrescoOut ( void );
-void TogglearSalidas( uint8_t );
 uint8_t GetFvolume( void );
 void SetFvolume( uint8_t );
 uint8_t GetFdrive( void );
@@ -157,6 +156,20 @@ void timeoutDrive(void);
 void Control_DigPot_Volume(uint8_t);
 void Control_DigPot_Drive(uint8_t);
 
-
+void x9c103s_inc( void );
+void x9c103s_dec( void );
+void x9c103s_CS_LOW( void );
+void x9c103s_CS_HIGH( void );
+void x9c103s_INC_LOW( void );
+void x9c103s_INC_HIGH( void );
+void x9c103s_UD_LOW( void );
+void x9c103s_UD_HIGH( void );
+void x9c103s_Store_wipe_position( void );
+void x9c103s_Standby_current( void );
+void x9c103s_SetVolume( uint8_t );
+void x9c103s_SetMinimun( void );
+void x9c103s_SetMaximus( void );
+void x9c103s_Init( void );
+void delay_1ms( void );
 
 #endif /* SOURCES_DRIVER_TK_DR_ENTRADAS_H_ */

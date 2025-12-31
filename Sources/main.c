@@ -25,9 +25,11 @@ int main( void )
 	Control_DigPot_Volume(3);
     Control_DigPot_Drive(2);
 
+
 	while ( 1 )
 	{
     	c = GetKey ( );
+    	/*
     	if( c != NO_KEY )
     	{
     		if( c == 0 ){
@@ -35,6 +37,7 @@ int main( void )
     			stepsVolume++;
     			stepsVolume%=8;
     			TimerStart(E_TIMEOUT_VOLUME, T_VOLUME, timeoutVolume, SEG);
+
     		}
 
     		if( c == 1 ){
@@ -42,6 +45,7 @@ int main( void )
 				stepsDrive++;
 				stepsDrive%=4;
 				TimerStart(E_TIMEOUT_DRIVE, T_DRIVE, timeoutDrive, SEG);
+
 			}
     	}
 
@@ -69,14 +73,15 @@ int main( void )
     		estado = IDLE;
     		break;
     	}
+     	*/
 
      	caracter = UART1_PopRx();
      	if( caracter > 0 ){
      		volumeRx((uint8_t)caracter);
-     		if( volumen > 0 ){
-     			volumen = 0;
+     		if( volumen >= 0 ){
+     			x9c103s_SetVolume(volumen);
      		}
-
+     		/*
      		driveRx((uint8_t)caracter);
      		if( distorsion > 0 ){
      			distorsion = 0;
@@ -86,6 +91,7 @@ int main( void )
      		if( tono > 0 ){
      			tono = 0;
      		}
+     		*/
      	}
 
 	}

@@ -99,7 +99,18 @@
 #define 	DRIVE_CONTROL_D		PORTE,4		//OK
 
 
-#define    	IN0	        	PORTD,2
+//Salidas Poteciómentro digital 10K
+/*
+#define 	POTE_X9C103S_CS		PORTA,2		//OK
+#define 	POTE_X9C103S_UD		PORTA,3		//OK
+#define 	POTE_X9C103S_INC	PORTD,2		//OK
+*/
+
+#define 	POTE_X9C103S_CS		PORTC,1		//OK
+#define 	POTE_X9C103S_UD		PORTC,0		//OK
+#define 	POTE_X9C103S_INC	PORTF,7		//OK
+
+
 #define    	IN1	        	PORTD,3
 
 
@@ -212,6 +223,14 @@
 #define		ON				1
 #define		PARPADEO		2
 #define		abs(x)			( x > 0 ) ? (x) : (-(x))
+
+
+#define    ON_CS			0
+#define    OFF_CS			1
+#define    ON_INC			0
+#define    OFF_INC			1
+#define    ON_UD			0
+#define    OFF_UD			1
 
 
 

@@ -48,6 +48,7 @@ uint32_t MascaraOutputs = 0xffffffff;
 uint8_t fTimeoutVolume = 0;
 uint8_t fTimeoutDrive = 0;
 
+uint8_t x9c103s_volume = 0;
 
 /***********************************************************************************************************************************
  *** PROTOTIPO DE FUNCIONES PRIVADAS AL MODULO
@@ -134,210 +135,6 @@ void RefrescoOut ( void )
 }
 
 
-void TogglearSalidas( uint8_t salida )
-{
-	switch( salida )
-	{
-	case 0:
-		if( (Outputs >> 0) & 0x01 )
-			OUT0oFF;
-		else
-			OUT0oN;
-		break;
-	case 1:
-		if( (Outputs >> 1) & 0x01 )
-			OUT1oFF;
-		else
-			OUT1oN;
-		break;
-	case 2:
-		if( (Outputs >> 2) & 0x01 )
-			OUT2oFF;
-		else
-			OUT2oN;
-		break;
-	case 3:
-		if( (Outputs >> 3) & 0x01 )
-			OUT3oFF;
-		else
-			OUT3oN;
-		break;
-	case 4:
-		if( (Outputs >> 4) & 0x01 )
-			OUT4oFF;
-		else
-			OUT4oN;
-		break;
-	case 5:
-		if( (Outputs >> 5) & 0x01 )
-			OUT5oFF;
-		else
-			OUT5oN;
-		break;
-	case 6:
-		if( (Outputs >> 6) & 0x01 )
-			OUT6oFF;
-		else
-			OUT6oN;
-		break;
-	case 7:
-		if( (Outputs >> 7) & 0x01 )
-			OUT7oFF;
-		else
-			OUT7oN;
-		break;
-	case 8:
-		if( (Outputs >> 8) & 0x01 )
-			OUT8oFF;
-		else
-			OUT8oN;
-		break;
-	case 9:
-		if( (Outputs >> 9) & 0x01 )
-			OUT9oFF;
-		else
-			OUT9oN;
-		break;
-	case 10:
-		if( (Outputs >> 10) & 0x01 )
-			OUT10oFF;
-		else
-			OUT10oN;
-		break;
-	case 11:
-		if( (Outputs >> 11) & 0x01 )
-			OUT11oFF;
-		else
-			OUT11oN;
-		break;
-	case 12:
-		if( (Outputs >> 12) & 0x01 )
-			OUT12oFF;
-		else
-			OUT12oN;
-		break;
-	case 13:
-		if( (Outputs >> 13) & 0x01 )
-			OUT13oFF;
-		else
-			OUT13oN;
-		break;
-	case 14:
-		if( (Outputs >> 14) & 0x01 )
-			OUT14oFF;
-		else
-			OUT14oN;
-		break;
-	case 15:
-		if( (Outputs >> 15) & 0x01 )
-			OUT15oFF;
-		else
-			OUT15oN;
-		break;
-	case 16:
-		if( (Outputs >> 16) & 0x01 )
-			OUT16oFF;
-		else
-			OUT16oN;
-		break;
-	case 17:
-		if( (Outputs >> 17) & 0x01 )
-			OUT17oFF;
-		else
-			OUT17oN;
-		break;
-	case 18:
-		if( (Outputs >> 18) & 0x01 )
-			OUT18oFF;
-		else
-			OUT18oN;
-		break;
-	case 19:
-		if( (Outputs >> 19) & 0x01 )
-			OUT19oFF;
-		else
-			OUT19oN;
-		break;
-	case 20:
-		if( (Outputs >> 20) & 0x01 )
-			OUT20oFF;
-		else
-			OUT20oN;
-		break;
-	case 21:
-		if( (Outputs >> 21) & 0x01 )
-			OUT21oFF;
-		else
-			OUT21oN;
-		break;
-	case 22:
-		if( (Outputs >> 22) & 0x01 )
-			OUT22oFF;
-		else
-			OUT22oN;
-		break;
-	case 23:
-		if( (Outputs >> 23) & 0x01 )
-			OUT23oFF;
-		else
-			OUT23oN;
-		break;
-	case 24:
-		if( (Outputs >> 24) & 0x01 )
-			OUT24oFF;
-		else
-			OUT24oN;
-		break;
-	case 25:
-		if( (Outputs >> 25) & 0x01 )
-			OUT25oFF;
-		else
-			OUT25oN;
-		break;
-	case 26:
-		if( (Outputs >> 26) & 0x01 )
-			OUT26oFF;
-		else
-			OUT26oN;
-		break;
-	case 27:
-		if( (Outputs >> 27) & 0x01 )
-			OUT27oFF;
-		else
-			OUT27oN;
-		break;
-	case 28:
-		if( (Outputs >> 28) & 0x01 )
-			OUT28oFF;
-		else
-			OUT28oN;
-		break;
-	case 29:
-		if( (Outputs >> 29) & 0x01 )
-			OUT29oFF;
-		else
-			OUT29oN;
-		break;
-	case 30:
-		if( (Outputs >> 30) & 0x01 )
-			OUT30oFF;
-		else
-			OUT30oN;
-		break;
-	case 31:
-		if( (Outputs >> 31) & 0x01 )
-			OUT31oFF;
-		else
-			OUT31oN;
-		break;
-
-	case ALLoUTSON:
-		Outputs = 0xFFFFFFFF;
-		break;
-	default:
-		break;
-	}
-}
 
 
 uint8_t GetFvolume( void ){
@@ -488,4 +285,139 @@ void Control_DigPot_Drive(uint8_t value){
 		SetPIN( DRIVE_CONTROL_A  , OFF );
 		break;
 	}
+}
+
+void x9c103s_inc( void ){
+
+	x9c103s_INC_LOW();
+	delay_1ms();
+	x9c103s_INC_HIGH();
+	delay_1ms();
+
+}
+
+void x9c103s_dec( void ){
+
+	x9c103s_INC_LOW();
+	delay_1ms();
+	x9c103s_INC_HIGH();
+	delay_1ms();
+}
+
+void x9c103s_CS_LOW( void ){
+
+	SetPIN( POTE_X9C103S_CS  , ON_CS );
+}
+
+void x9c103s_CS_HIGH( void ){
+
+	SetPIN( POTE_X9C103S_CS  , OFF_CS );
+}
+
+void x9c103s_INC_LOW( void ){
+
+	SetPIN( POTE_X9C103S_INC  , ON_INC );
+}
+
+void x9c103s_INC_HIGH( void ){
+
+	SetPIN( POTE_X9C103S_INC  , OFF_INC );
+}
+
+void x9c103s_UD_LOW( void ){
+
+	SetPIN( POTE_X9C103S_UD  , ON_UD );
+}
+
+void x9c103s_UD_HIGH( void ){
+
+	SetPIN( POTE_X9C103S_UD  , OFF_UD );
+}
+
+void x9c103s_Store_wipe_position( void ){
+	SetPIN( POTE_X9C103S_INC  , OFF_INC );
+	x9c103s_CS_HIGH(  );
+}
+
+void x9c103s_Standby_current( void ){
+	SetPIN( POTE_X9C103S_INC  , OFF_INC );
+	SetPIN( POTE_X9C103S_CS  , OFF_CS );
+}
+
+void x9c103s_SetVolume( uint8_t value ){
+	uint8_t distancia, i;
+	if( value > 100 )
+		return;
+
+	if( value == 100 ){
+		x9c103s_SetMaximus();
+		return;
+	}
+
+	if( value == 0 ){
+		x9c103s_SetMinimun();
+		return;
+	}
+
+	if( value <= x9c103s_volume ){
+		x9c103s_CS_LOW();
+		x9c103s_UD_LOW();			//Decrementar
+		distancia = x9c103s_volume - value;
+		for( i=0; i < distancia; i++)
+			x9c103s_dec();
+	}
+	else{
+		x9c103s_CS_LOW();
+		x9c103s_UD_HIGH();			//Incrementar
+
+		distancia = value - x9c103s_volume;
+		for( i=0; i < distancia; i++)
+			x9c103s_inc();
+	}
+	x9c103s_CS_HIGH();
+	x9c103s_volume = value;
+}
+
+void x9c103s_SetMinimun( void ){
+	x9c103s_CS_LOW();
+	x9c103s_UD_LOW();
+
+	for( int i = 0; i < 100; i++ ){
+		x9c103s_dec( );
+	}
+
+	x9c103s_CS_HIGH();
+
+	x9c103s_volume = 0;
+}
+
+void x9c103s_SetMaximus( void ){
+	x9c103s_CS_LOW();
+	x9c103s_UD_HIGH();
+
+	for( int i = 0; i < 100; i++ ){
+		x9c103s_inc( );
+	}
+
+	x9c103s_CS_HIGH();
+
+	x9c103s_volume = 100;
+}
+
+void x9c103s_Init( void ){
+	//Pote X9C103S
+	SetDIR( POTE_X9C103S_CS  , SALIDA );
+	SetDIR( POTE_X9C103S_INC  , SALIDA );
+	SetDIR( POTE_X9C103S_UD  , SALIDA );
+
+	SetPIN( POTE_X9C103S_CS  , OFF_CS );
+	SetPIN( POTE_X9C103S_INC  , OFF_INC );
+	SetPIN( POTE_X9C103S_UD  , OFF_UD );
+
+	x9c103s_SetMinimun();
+	//x9c103s_SetMaximus();
+}
+
+void delay_1ms( void ){
+
 }
