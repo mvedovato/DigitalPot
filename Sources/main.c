@@ -30,7 +30,7 @@ int main( void )
 
 	while ( 1 )
 	{
-/*    	c = GetKey ( );
+    	c = GetKey ( );
 
     	if( c != NO_KEY )
     	{
@@ -38,7 +38,7 @@ int main( void )
     			estado = VOLUME;
     			stepsVolume++;
     			stepsVolume%=8;
-    			TimerStart(E_TIMEOUT_VOLUME, T_VOLUME, timeoutVolume, SEG);
+    			TimerStart(E_TIMEOUT_VOLUME, 5, timeoutVolume, SEG);
 
     		}
 
@@ -46,7 +46,7 @@ int main( void )
 				estado = DRIVE;
 				stepsDrive++;
 				stepsDrive%=4;
-				TimerStart(E_TIMEOUT_DRIVE, T_DRIVE, timeoutDrive, SEG);
+				TimerStart(E_TIMEOUT_DRIVE, 5, timeoutDrive, SEG);
 
 			}
     	}
@@ -76,30 +76,6 @@ int main( void )
     		break;
     	}
 
-
-     	caracter = UART1_PopRx();
-     	if( caracter > 0 ){
-     		volumen = volumeRx((uint8_t)caracter);
-     		if( volumen >= 0 ){
-     			x9c103s_SetVolume(volumen);
-     		}
-
-
-     		distorsion = driveRx((uint8_t)caracter);
-     		if( distorsion >= 0 ){
-     			x9c104s_Drive_SetDrive(distorsion);
-     		}
-
-     		tono = toneRx((uint8_t)caracter);
-     		if( tono >= 0 ){
-     			x9c104s_Tone_SetTone(tono);
-     		}
-
-     		statusRx((uint8_t)caracter);
-
-
-     	}
-*/
      	caracter = UART1_PopRx();
      	if( caracter > 0 ){
      		valor = analysisRx((uint8_t)caracter);

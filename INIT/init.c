@@ -86,9 +86,7 @@ void InicializarBoard ( void )
 	SetPINMODE( IN5 , PULL_UP);
 
 
-	x9c103s_Init( );
-	x9c104s_Drive_Init( );
-	x9c104s_Tone_Init( );
+
 
 	// Handlers colgados del Systick. Se llaman cada 1 ms
 	SysTick_SetHandlers( KeysDebounce );

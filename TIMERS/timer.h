@@ -66,6 +66,7 @@ typedef void (*Timer_Handler)(void);
 #define 	E_LCDGRAFICO			7
 #define 	E_TIMEOUT_VOLUME		8
 #define 	E_TIMEOUT_DRIVE			9
+#define 	E_TIMEOUT_TONE			10
 
 #define 	T_PARPADEORAPIDO 		2
 #define 	T_PARPADEOLENTO			5
@@ -76,8 +77,9 @@ typedef void (*Timer_Handler)(void);
 #define 	T_IMPRIMIR				20
 #define     TIEMPOdELAY     		250
 #define 	T_LCDGRAFICO			10
-#define     T_VOLUME	     		5
-#define 	T_DRIVE					5
+#define     T_VOLUME	     		1
+#define 	T_DRIVE					2
+#define 	T_TONE					3
 
 /***********************************************************************************************************************************
  *** MACROS GLOBALES

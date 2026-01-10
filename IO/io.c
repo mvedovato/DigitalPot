@@ -153,11 +153,18 @@ void SetFdrive( uint8_t value ){
 }
 
 void timeoutVolume(void){
+	x9c103s_Init( );
 	fTimeoutVolume = 1;
+
 }
 
 void timeoutDrive(void){
+	x9c104s_Drive_Init( );
 	fTimeoutDrive = 1;
+}
+
+void timeoutTone(void){
+	x9c104s_Tone_Init( );
 }
 
 void Control_DigPot_Volume(uint8_t value){

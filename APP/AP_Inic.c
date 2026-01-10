@@ -22,6 +22,7 @@
 #include "DR_SystemInit.h"
 #include "DR_LCD16x2.h"
 #include "init.h"
+#include "timer.h"
 
 
 /******************************************************************************
@@ -67,6 +68,13 @@ void Inicializacion( void )
 	//Inicializar_LCD( );
 	//InicializarLCDGrafico( );
 	//InicializarADC( );
+
+	TimerStart(E_TIMEOUT_VOLUME, T_VOLUME, timeoutVolume, SEG);
+	TimerStart(E_TIMEOUT_DRIVE, T_DRIVE, timeoutDrive, SEG);
+	TimerStart(E_TIMEOUT_TONE, T_TONE, timeoutTone, SEG);
+
+
+
 
 	/*
 	echk = LoadProgramas( );

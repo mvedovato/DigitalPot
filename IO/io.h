@@ -153,6 +153,7 @@ uint8_t GetFdrive( void );
 void SetFdrive( uint8_t );
 void timeoutVolume(void);
 void timeoutDrive(void);
+void timeoutTone(void);
 void Control_DigPot_Volume(uint8_t);
 void Control_DigPot_Drive(uint8_t);
 
