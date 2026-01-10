@@ -21,5 +21,7 @@
 #include "io.h"
 #include "uart.h"
 #include "DR_LCD16x2.h"
+#include "x9c10xs.h"
+
 
 #endif /* SOURCES_DIGITALPOT_H_ */

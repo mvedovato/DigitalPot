@@ -157,53 +157,6 @@ void timeoutTone(void);
 void Control_DigPot_Volume(uint8_t);
 void Control_DigPot_Drive(uint8_t);
 
-void x9c103s_inc( void );
-void x9c103s_dec( void );
-void x9c103s_CS_LOW( void );
-void x9c103s_CS_HIGH( void );
-void x9c103s_INC_LOW( void );
-void x9c103s_INC_HIGH( void );
-void x9c103s_UD_LOW( void );
-void x9c103s_UD_HIGH( void );
-void x9c103s_Store_wipe_position( void );
-void x9c103s_Standby_current( void );
-void x9c103s_SetVolume( uint8_t );
-void x9c103s_SetMinimun( void );
-void x9c103s_SetMaximus( void );
-void x9c103s_Init( void );
 
-//Drive
-void x9c104s_Drive_inc( void );
-void x9c104s_Drive_dec( void );
-void x9c104s_Drive_CS_LOW( void );
-void x9c104s_Drive_CS_HIGH( void );
-void x9c104s_Drive_INC_LOW( void );
-void x9c104s_Drive_INC_HIGH( void );
-void x9c104s_Drive_UD_LOW( void );
-void x9c104s_Drive_UD_HIGH( void );
-void x9c104s_Drive_Store_wipe_position( void );
-void x9c104s_Drive_Standby_current( void );
-void x9c104s_Drive_SetDrive( uint8_t );
-void x9c104s_Drive_SetMinimun( void );
-void x9c104s_Drive_SetMaximus( void );
-void x9c104s_Drive_Init( void );
-
-//Tone
-void x9c104s_Tone_inc( void );
-void x9c104s_Tone_dec( void );
-void x9c104s_Tone_CS_LOW( void );
-void x9c104s_Tone_CS_HIGH( void );
-void x9c104s_Tone_INC_LOW( void );
-void x9c104s_Tone_INC_HIGH( void );
-void x9c104s_Tone_UD_LOW( void );
-void x9c104s_Tone_UD_HIGH( void );
-void x9c104s_Tone_Store_wipe_position( void );
-void x9c104s_Tone_Standby_current( void );
-void x9c104s_Tone_SetTone( uint8_t );
-void x9c104s_Tone_SetMinimun( void );
-void x9c104s_Tone_SetMaximus( void );
-void x9c104s_Tone_Init( void );
-uint8_t getParameter( void );
-void delay_1ms( void );
 
 #endif /* SOURCES_DRIVER_TK_DR_ENTRADAS_H_ */
