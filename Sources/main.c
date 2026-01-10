@@ -10,26 +10,28 @@
 #include <DigitalPot.h>
 
 
-uint8_t estado = 0;
+int8_t estado = 0;
 int16_t volumen = 0;
 int16_t tono = 0;
 int16_t distorsion = 0;
+extern uint8_t parameter;
 
 int main( void )
 {
 	uint8_t c = NO_KEY, stepsVolume = 0, stepsDrive = 0;
-	int32_t caracter;
+	int32_t caracter, valor;
+	uint8_t bufferTx[16];
+	uint8_t i, chkTx;
+
 
 	Inicializacion( );
-	Display_LCD((unsigned char *)"Digital Pot", 0, 0);
-	Control_DigPot_Volume(3);
-    Control_DigPot_Drive(2);
+
 
 
 	while ( 1 )
 	{
-    	c = GetKey ( );
-    	/*
+/*    	c = GetKey ( );
+
     	if( c != NO_KEY )
     	{
     		if( c == 0 ){
@@ -63,37 +65,79 @@ int main( void )
     	case IDLE:
     		break;
     	case VOLUME:
-    		Control_DigPot_Volume(stepsVolume);
+
      		break;
     	case DRIVE:
-    		Control_DigPot_Drive(stepsDrive);
+
      		break;
 
     	default:
     		estado = IDLE;
     		break;
     	}
-     	*/
+
 
      	caracter = UART1_PopRx();
      	if( caracter > 0 ){
-     		volumeRx((uint8_t)caracter);
+     		volumen = volumeRx((uint8_t)caracter);
      		if( volumen >= 0 ){
      			x9c103s_SetVolume(volumen);
      		}
-     		/*
-     		driveRx((uint8_t)caracter);
-     		if( distorsion > 0 ){
-     			distorsion = 0;
+
+
+     		distorsion = driveRx((uint8_t)caracter);
+     		if( distorsion >= 0 ){
+     			x9c104s_Drive_SetDrive(distorsion);
      		}
 
-     		toneRx((uint8_t)caracter);
-     		if( tono > 0 ){
-     			tono = 0;
+     		tono = toneRx((uint8_t)caracter);
+     		if( tono >= 0 ){
+     			x9c104s_Tone_SetTone(tono);
      		}
-     		*/
+
+     		statusRx((uint8_t)caracter);
+
+
      	}
+*/
+     	caracter = UART1_PopRx();
+     	if( caracter > 0 ){
+     		valor = analysisRx((uint8_t)caracter);
+     		if( valor >= 0 ){
+     			switch( parameter ){
+     			case 'V':
+     				x9c103s_SetVolume(valor);
+     				break;
 
+     			case 'D':
+     				x9c104s_Drive_SetDrive(valor);
+     				break;
+
+     			case 'T':
+     				x9c104s_Tone_SetTone(valor);
+     				break;
+
+     			case 'G':
+     				//>ValueVolume,ValueDrive,ValueTone,chk<
+
+     				sprintf((char *)bufferTx,">,%d,%d,%d,",volumen, tono, distorsion );
+     				for(i=0;bufferTx[i];i++){
+     					chkTx ^= bufferTx[i];
+     				}
+     				bufferTx[i] = chkTx;
+     				bufferTx[i+1] = '<';
+     				bufferTx[i+2] = '\0';
+     				UART1_Send(bufferTx, strlen((char *)bufferTx));
+     				break;
+
+     			default:
+
+     				break;
+
+     			}
+
+     		}
+     	}
 	}
 }
 

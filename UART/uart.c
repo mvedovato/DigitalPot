@@ -14,6 +14,9 @@ UART0_Struct UART1_datos;
 extern int16_t volumen;
 extern int16_t distorsion;
 extern int16_t tono;
+
+uint8_t UART1_atomic = 0;
+uint8_t parameter = 0;
 /*
  * UARTBaudRate = BUSclk / 16*BR
  * BR = BUSclk / 16*UARTBaudRate
@@ -171,6 +174,7 @@ uint8_t InicializarUart1( uint32_t baudRate )
 }
 
 
+
 void UART1_IRQHandler(void)
 {
 	uint8_t temporal, dato;
@@ -179,7 +183,9 @@ void UART1_IRQHandler(void)
 	if( (temporal & UART_S1_RDRF_MASK) >> UART_S1_RDRF_SHIFT )		//RX
 	{
 		dato = UART1_D;
+		UART1_atomic = 1;
 		UART1_PushRx( dato );
+		UART1_atomic = 0;
 
 	}
 
@@ -254,18 +260,24 @@ void UART1_PushRx(uint8_t dato)
 	UART1_datos.RX.Buffer[UART1_datos.RX.Indice_in] = dato;
 
 	UART1_datos.RX.Indice_in ++;
-	UART1_datos.RX.Indice_in %= UART1_TAMANIO_COLA_RX;
+	if( UART1_datos.RX.Indice_in == UART1_TAMANIO_COLA_RX ){
+		UART1_datos.RX.Indice_in = 0;
+	}
 }
 
 int32_t UART1_PopRx( void )
 {
 	int32_t dato = -1;
 
-	if ( UART1_datos.RX.Indice_in != UART1_datos.RX.Indice_out )
-	{
-		dato = (int32_t) UART1_datos.RX.Buffer[UART1_datos.RX.Indice_out];
-		UART1_datos.RX.Indice_out ++;
-		UART1_datos.RX.Indice_out %= UART1_TAMANIO_COLA_RX;
+	if( !UART1_atomic ){
+		if ( UART1_datos.RX.Indice_in != UART1_datos.RX.Indice_out )
+		{
+			dato = (int32_t) UART1_datos.RX.Buffer[UART1_datos.RX.Indice_out];
+			UART1_datos.RX.Indice_out ++;
+			if( UART1_datos.RX.Indice_out == UART1_TAMANIO_COLA_RX ){
+				UART1_datos.RX.Indice_out = 0;
+			}
+		}
 	}
 	return dato;
 }
@@ -508,6 +520,190 @@ int32_t toneRx( uint8_t dato ){
 			estado = 0;
 			chk = 0;
 			tone = 0;
+		}
+		break;
+
+	default:
+		estado = 0;
+		break;
+	}
+
+	return retorno;
+}
+
+// Get Status all variables
+// >G,3,chk<
+int32_t statusRx( uint8_t dato ){
+	static uint8_t estado = 0, chk = 0;
+	int32_t retorno = -1;
+	uint8_t bufferTx[16];
+	uint8_t i;
+
+	switch( estado ){
+	case 0:
+		if( dato == '>'){
+			chk = dato;
+			estado = 1;
+		}
+		break;
+	case 1:
+		if( dato == 'G' ){
+			chk ^= dato;
+			estado = 2;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+		}
+		break;
+	case 2:
+		if( dato == ',' ){
+			chk ^= dato;
+			estado = 3;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+		}
+		break;
+	case 3:
+		if( dato == '3' ){
+			chk ^= dato;
+			estado = 4;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+		}
+		break;
+	case 4:
+		if( dato == ',' ){
+			chk ^= dato;
+			estado = 5;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+			}
+		break;
+	case 5:	//Chequeo de chk
+		if( chk == dato ){
+			estado = 6;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+		}
+		break;
+	case 6:
+		if( dato == '<' ){
+			estado = 0;
+			retorno = 0;
+			chk = 0;
+			//>ValueVolume,ValueDrive,ValueTone,chk<
+			sprintf((char *)bufferTx,">,%d,%d,%d,",volumen, tono, distorsion );
+			for(i=0;bufferTx[i];i++){
+				chk ^= bufferTx[i];
+			}
+			bufferTx[i] = chk;
+			bufferTx[i+1] = '<';
+			bufferTx[i+2] = '\0';
+			UART1_Send(bufferTx, strlen((char *)bufferTx));
+			chk = 0;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+		}
+		break;
+
+	default:
+		estado = 0;
+		break;
+	}
+
+	return retorno;
+}
+
+
+int32_t analysisRx( uint8_t dato ){
+	static uint8_t estado = 0, chk = 0, value = 0;
+	int32_t retorno = -1;
+
+
+	switch( estado ){
+	case 0:
+		if( dato == '>'){
+			chk = dato;
+			estado = 1;
+		}
+		break;
+	case 1:
+		if( dato == 'V' || dato == 'D' || dato == 'T' || dato == 'G' ){
+			parameter = dato;
+			estado = 2;
+			chk ^= dato;
+
+		}
+		else{
+			estado = 0;
+			chk = 0;
+			parameter = 0;
+		}
+		break;
+	case 2:
+		if( dato == ',' ){
+			chk ^= dato;
+			estado = 3;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+			parameter = 0;
+		}
+		break;
+	case 3:
+		if( dato == ',' ){
+			chk ^= dato;
+			estado = 4;
+		}
+		else{
+			if( dato >= '0' && dato <= '9' ){
+				value *= 10;
+				value += (dato - '0');
+				chk ^= dato;
+			}
+			else{
+				estado = 0;
+				chk = 0;
+				value = 0;
+				parameter = 0;
+			}
+
+		}
+		break;
+	case 4:	//Chequeo de chk
+		if( chk == dato ){
+			estado = 5;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+			value = 0;
+			parameter = 0;
+		}
+		break;
+	case 5:
+		if( dato == '<' ){
+			estado = 0;
+			retorno = value;
+			chk = 0;
+			value = 0;
+		}
+		else{
+			estado = 0;
+			chk = 0;
+			value = 0;
 		}
 		break;
 

@@ -84,12 +84,16 @@
 //Salidas control DigPot Volume
 #define 	VOLUME_CONTROL_1A		PORTA,1		//OK
 #define 	VOLUME_CONTROL_1B		PORTA,0		//OK
+
+// Usados como potes digitales x9C10xS
+
 #define 	VOLUME_CONTROL_1C		PORTE,3		//OK
 #define 	VOLUME_CONTROL_1D		PORTE,2		//OK
 #define 	VOLUME_CONTROL_2A		PORTG,3		//OK
 #define 	VOLUME_CONTROL_2B		PORTG,2		//OK
 #define 	VOLUME_CONTROL_2C		PORTG,1		//OK
 #define 	VOLUME_CONTROL_2D		PORTG,0		//OK
+
 
 
 //Salidas control DigPot Drive
@@ -106,10 +110,20 @@
 #define 	POTE_X9C103S_INC	PORTD,2		//OK
 */
 
+// Volume
 #define 	POTE_X9C103S_CS		PORTC,1		//OK
 #define 	POTE_X9C103S_UD		PORTC,0		//OK
 #define 	POTE_X9C103S_INC	PORTF,7		//OK
 
+// Drive
+#define 	POTE_X9C104S_DRIVE_CS		PORTE,3		//OK
+#define 	POTE_X9C104S_DRIVE_UD		PORTG,3		//OK
+#define 	POTE_X9C104S_DRIVE_INC		PORTE,2		//OK
+
+// Tone
+#define 	POTE_X9C104S_TONE_CS		PORTG,2		//OK
+#define 	POTE_X9C104S_TONE_UD		PORTG,0		//OK
+#define 	POTE_X9C104S_TONE_INC		PORTG,1		//OK
 
 #define    	IN1	        	PORTD,3
 

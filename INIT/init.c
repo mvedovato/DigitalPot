@@ -85,37 +85,10 @@ void InicializarBoard ( void )
 	SetPINMODE( IN4 , PULL_UP);
 	SetPINMODE( IN5 , PULL_UP);
 
-	// SALIDAS --------------------------------------------
-	SetDIR( VOLUME_CONTROL_1A  , SALIDA );
-	SetDIR( VOLUME_CONTROL_1B  , SALIDA );
-	SetDIR( VOLUME_CONTROL_1C  , SALIDA );
-	SetDIR( VOLUME_CONTROL_1D  , SALIDA );
-	SetDIR( VOLUME_CONTROL_2A  , SALIDA );
-	SetDIR( VOLUME_CONTROL_2B  , SALIDA );
-	SetDIR( VOLUME_CONTROL_2C  , SALIDA );
-	SetDIR( VOLUME_CONTROL_2D  , SALIDA );
-
-	SetPIN( VOLUME_CONTROL_1A  , ON );
-	SetPIN( VOLUME_CONTROL_1B  , OFF );
-	SetPIN( VOLUME_CONTROL_1C  , OFF );
-	SetPIN( VOLUME_CONTROL_1D  , OFF );
-	SetPIN( VOLUME_CONTROL_2A  , OFF );
-	SetPIN( VOLUME_CONTROL_2B  , OFF );
-	SetPIN( VOLUME_CONTROL_2C  , OFF );
-	SetPIN( VOLUME_CONTROL_2D  , OFF );
-
-
-	SetDIR( DRIVE_CONTROL_A  , SALIDA );
-	SetDIR( DRIVE_CONTROL_B  , SALIDA );
-	SetDIR( DRIVE_CONTROL_C  , SALIDA );
-	SetDIR( DRIVE_CONTROL_D  , SALIDA );
-
-	SetPIN( DRIVE_CONTROL_A  , ON );
-	SetPIN( DRIVE_CONTROL_B  , OFF );
-	SetPIN( DRIVE_CONTROL_C  , OFF );
-	SetPIN( DRIVE_CONTROL_D  , OFF );
 
 	x9c103s_Init( );
+	x9c104s_Drive_Init( );
+	x9c104s_Tone_Init( );
 
 	// Handlers colgados del Systick. Se llaman cada 1 ms
 	SysTick_SetHandlers( KeysDebounce );

@@ -10,6 +10,7 @@
 
 #include "MKE02Z2.h"
 #include <stdio.h>
+#include <string.h>
 
 #define 	UART0bAUDrATE							9600
 #define		UART0_TAMANIO_COLA_RX					10
@@ -59,5 +60,7 @@ int32_t UART1_PopRx( void );
 int32_t volumeRx( uint8_t );
 int32_t driveRx( uint8_t );
 int32_t toneRx( uint8_t );
+int32_t statusRx( uint8_t );
+int32_t analysisRx( uint8_t );
 
 #endif /* SOURCES_DRIVERS_MKE_H_DR_UART_H_ */
